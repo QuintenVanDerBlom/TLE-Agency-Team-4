@@ -10,9 +10,9 @@
 </head>
 <body>
     <header id="main-header">
-        <button id="hamburger-menu-button" type="button">☰</button>
-        <img id="header-logo" src="{{ asset('/images/logos/logo.png') }}" alt="website logo">
-        <img id="profile-picture" src="{{ asset('/images/pfp.png') }}" alt="profile picture">
+        <div class = "header-item"><button id="hamburger-menu-button" type="button">☰</button></div>
+        <div class = "header-item"><img id="header-logo" src="{{ asset('/images/logos/logo.png') }}" alt="website logo"></div>
+        <div class = "header-item"><img id="profile-picture" src="{{ asset('/images/pfp.png') }}" alt="profile picture"></div>
     </header>
     {{ $slot }}
 
