@@ -7,8 +7,14 @@ Route::get('/', function () {
     return view('index');
 });
 
-// Route for handling form submission (POST)
-Route::post('/aanvullende-informatie', [JobController::class, 'filter'])->name('aanvullende-informatie');
+
+// GET route to show the form
+Route::get('/aanvullende-informatie', function () {
+    return view('aanvullende-informatie');
+})->name('aanvullende-informatie');
+
+// POST route to handle form submission
+Route::post('/aanvullende-informatie', [JobController::class, 'filterJobs'])->name('aanvullende-informatie');
 
 // Route for displaying the filtered jobs (GET)
 Route::get('/filter-vacatures', [JobController::class, 'showFilteredJobs'])->name('filter.vacatures');
