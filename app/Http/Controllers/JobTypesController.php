@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JobType;
 use Illuminate\Http\Request;
 
 class JobTypesController extends Controller
@@ -11,6 +12,8 @@ class JobTypesController extends Controller
      */
     public function index()
     {
+        $jobTypes = JobType::all();
+
         return view('job-types');
 
     }
