@@ -6,7 +6,7 @@
     <a href = "#">Mijn inschrijvingen</a>
     <a href = "#">Contact</a>
 </nav>
-<span onclick="openNav()">open</span>
+<span onclick="openNav()">{{$slot}}</span>
 <script>
     function openNav() {
         document.getElementById("sideNav").style.width = "60vw";

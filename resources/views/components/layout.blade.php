@@ -5,18 +5,14 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="{{ asset('/css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
     <title>Open Hiring</title>
 </head>
 <body>
     <header id="main-header">
-        <div class = "header-item"><button id="hamburger-menu-button" type="button">☰</button></div>
+        <x-layout-nav><div class = "header-item"><button id="hamburger-menu-button" type="button">☰</button></div></x-layout-nav>
         <div class = "header-item"><img id="header-logo" src="{{ asset('/images/logos/logo.png') }}" alt="website logo"></div>
         <div class = "header-item"><img id="profile-picture" src="{{ asset('/images/pfp.png') }}" alt="profile picture"></div>
-    <header>
-        <x-layout-nav>
-
-        </x-layout-nav>
     </header>
     {{ $slot }}
     <footer>
