@@ -1,6 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
+body{
+    font-family: "Kantumruy Pro", sans-serif;
 
+}
+h1{
+    font-family: "Jost", sans-serif;
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: normal;
+    border-bottom: 1px solid black;
+    padding: 0 4rem;
 
+}
+h2{
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 1.3rem;
+    font-weight: normal;
+    padding: 0.4rem;
+}
+h3{
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    padding: 0.1rem;
+}
 /* The side navigation menu */
 .sideNav {
     height: 100%; /* 100% Full-height */
@@ -13,10 +37,11 @@
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 1rem; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
 .confirmation-center{
     display: flex;
     flex-direction: column;
-    box-shadow:  20px 0 20px -10px rgba(0, 0, 0, 0.5);
+    align-items: center;
 
 }
 
