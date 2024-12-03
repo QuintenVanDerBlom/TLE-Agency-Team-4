@@ -7,6 +7,10 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::resource('/job-types', JobTypesController::class);
+Route::get('job-types', function () {
+    return view('job-types');
+});
+
+
 
 
