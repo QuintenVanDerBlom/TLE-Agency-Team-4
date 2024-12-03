@@ -294,4 +294,8 @@ font-size: 2rem;
     box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Glow on focus */
 }
 
+.footer-box{
+    display: flex;
+    flex-direction: column;
+}
 
