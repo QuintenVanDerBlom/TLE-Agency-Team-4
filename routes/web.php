@@ -1,12 +1,17 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\JobListingCategoryController;
+use App\Http\Controllers\JobListingController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/confirmation', function () {
-    return view('confirmation');
-});
+Route::resource('/categories',CategoryController::class);
+Route::resource('/joblistingcategories', JobListingCategoryController::class);
+Route::resource('/joblistings', JobListingController::class);
+
+
 
 

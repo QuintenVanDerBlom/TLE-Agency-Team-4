@@ -39,8 +39,11 @@ class JobListingController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(JobListing $jobListing)
+    public function show($id)
     {
+        // Zoek de JobListing op basis van de id, of geef een 404-fout als deze niet bestaat
+        $jobListing = JobListing::findOrFail($id);
+
         // Geef de specifieke job listing door aan de view
         return view('job_listing.show', compact('jobListing'));
     }

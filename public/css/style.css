@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
 body{
     font-family: "Kantumruy Pro", sans-serif;
+    margin-bottom: 7rem;
 
 }
 h1{
@@ -24,6 +25,12 @@ h3{
     font-size: 1rem;
     font-weight: normal;
     padding: 0.1rem;
+}
+p{
+    font-size: 0.9rem;
+}
+li{
+    font-size: 0.9rem;
 }
 /* The side navigation menu */
 .sideNav {
@@ -132,3 +139,28 @@ font-size: 2rem;
 }
 
 
+.underline-box{
+    border-top: 0.2rem dotted #D9D9D9;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 90vw;
+    margin: 0.5rem;
+    padding: 0.5rem 0;
+}
+.underline-box h3{
+    align-self: center;
+    padding-bottom: 0.4rem;
+}
+.button-bevestiging{
+    width:  95vw;
+    height: 3rem;
+    background-color: #229508;
+    color: white;
+    border-radius: 0.3rem;
+    border: none;
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    padding: 0.1rem;
+}

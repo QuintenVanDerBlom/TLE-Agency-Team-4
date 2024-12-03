@@ -14,9 +14,9 @@ class Company extends Model
     /**
      * Relatie: Een bedrijf heeft meerdere vacatures
      */
-    public function jobListings(): HasMany
+    public function jobListings()
     {
-        return $this->hasMany(JobListing::class, 'company_id');
+        return $this->hasMany(JobListing::class);
     }
 
     /**
@@ -24,7 +24,7 @@ class Company extends Model
      */
     public function category(): BelongsTo
     {
-        return $this->belongsTo(Category::class, 'category_id');
+        return $this->belongsTo(Category::class);
     }
 }
 
