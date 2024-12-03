@@ -14,11 +14,12 @@ class JobListingController extends Controller
     public function index(JobListingsCategory $jobListingsCategory)
     {
         // Haal alle JobListings op die aan deze JobListingsCategory gekoppeld zijn
-        $jobListings = $jobListingsCategory->jobListings;
-
+        //$jobListings = $jobListingsCategory->jobListings()->with(['company', 'categories'])->get();
+        $jobListings = JobListing::all();
         // Geef de resultaten door aan de view
-        return view('job_listing.index', compact('jobListings', 'jobListingsCategory'));
+       return view('job_listing.index', compact('jobListings'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -42,7 +43,7 @@ class JobListingController extends Controller
     public function show(JobListing $jobListing)
     {
         // Geef de specifieke job listing door aan de view
-        return view('job_listing.show', compact('jobListing'));
+        return view('job_listing.index', compact('jobListing'));
     }
 
     /**
