@@ -14,7 +14,8 @@ class JobListingCategoryController extends Controller
     public function index(Category $category)
     {
         // Haal alle JobListingsCategories op die gekoppeld zijn aan de opgegeven Category
-        $jobListingsCategories = $category->jobListingCategories;
+//        $jobListingsCategories = $category->jobListingCategories;
+        $jobListingsCategories = JobListingCategory::all();
 
         // Retourneer de view met de resultaten en de category
         return view('job_listing_category.index', compact('jobListingsCategories', 'category'));
