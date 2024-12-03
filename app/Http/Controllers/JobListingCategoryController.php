@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\JobListingCategory;
-use App\Models\JobListingsCategory;
 use Illuminate\Http\Request;
 
 class JobListingCategoryController extends Controller
@@ -15,9 +14,7 @@ class JobListingCategoryController extends Controller
     public function index(Category $category)
     {
         // Haal alle JobListingsCategories op die gekoppeld zijn aan de opgegeven Category
-        $jobListingsCategories = JobListingsCategory::whereHas('categories', function ($query) use ($category) {
-            $query->where('categories.id', $category->id);
-        })->get();
+        $jobListingsCategories = $category->jobListingCategories;
 
         // Retourneer de view met de resultaten en de category
         return view('job_listing_category.index', compact('jobListingsCategories', 'category'));

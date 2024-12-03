@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\JobListing;
-use App\Models\JobListingsCategory;
+use App\Models\JobListingCategory;
 use Illuminate\Http\Request;
 
 class JobListingController extends Controller
@@ -11,9 +11,9 @@ class JobListingController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(JobListingsCategory $jobListingsCategory)
+    public function index(JobListingCategory $jobListingsCategory)
     {
-        // Haal alle JobListings op die aan deze JobListingsCategory gekoppeld zijn
+        // Haal alle JobListings op die aan deze JobListingCategory gekoppeld zijn
         $jobListings = $jobListingsCategory->jobListings;
 
         // Geef de resultaten door aan de view
