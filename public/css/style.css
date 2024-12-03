@@ -2,6 +2,7 @@
 
 * {
     font-family: "Kantumruy Pro", sans-serif;
+    margin-bottom: 12vh;
 }
 
 /* The side navigation menu */
@@ -110,7 +111,7 @@ font-size: 2rem;
 #lp-maincontent {
     display: flex;
     flex-direction: column;
-    gap: 4vh;
+    gap: 3vh;
     counter-reset: item;
 }
 
@@ -129,7 +130,7 @@ font-size: 2rem;
 .lp-item {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 /* Align the second item (right-align) to the right and move the circle */
@@ -150,8 +151,8 @@ font-size: 2rem;
 .circle-text::before {
     content: counter(item);
     counter-increment: item;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2rem;
+    height: 2rem;
     border: 2px solid #ccc;
     border-radius: 50%;
     display: flex;
@@ -171,3 +172,20 @@ font-size: 2rem;
 .right-align .circle-text::before {
     order: 1; /* Place circle after text */
 }
+
+#lp-button-div {
+    display: flex;
+    justify-content: center;
+}
+
+#lp-button {
+    width: 95vw;
+    height: 8vh;
+    display: block;
+    margin: 0 auto;
+    background-color: #313D29;
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 15px;
+}
+
