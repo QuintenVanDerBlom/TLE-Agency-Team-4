@@ -10,29 +10,29 @@ class JobController extends Controller
         function filter(Request $request)
         {
             // Haal beperkingen van form
-            $beperkingen = $request->input('keuze');  // This is an array of selected options
+            $disabilities = $request->input('keuze');  // This is an array of selected options
 
             // in session bewaren
-            session(['beperkingen' => $beperkingen]);
+            session(['disabilities' => $disabilities]);
 
             // naar nieuwe pagina met resultaten
-            return redirect()->route('filter.vacatures');
+            return redirect()->route('disabilities');
         }
 
         public
         function showFilteredJobs()
         {
-            // Retrieve the disabilities from the session
-            $beperkingen = session('beperkingen', []);
+            // beperkingen halen bij session
+            $disabilities = session('disabilities', []);
 
-            // Query the job postings based on the selected disabilities (if any)
-            $jobs = Job::where(function ($query) use ($beperkingen) {
-                foreach ($beperkingen as $beperking) {
-                    $query->orWhere('disability', $beperking);
+            // Query the job listing met beperkingen
+            $jobs = Job::where(function ($query) use ($disabilities) {
+                foreach ($disabilities as $disability) {
+                    $query->orWhere('disability', $disability);
                 }
             })->get();
 
-            // Return the filtered jobs to a different view
+            // return gefilterde vacatures in view
             return view('filter-vacatures', compact('jobs'));
         }
     }

@@ -14,7 +14,7 @@ Route::get('/aanvullende-informatie', function () {
 })->name('aanvullende-informatie');
 
 // POST route to handle form submission
-Route::post('/aanvullende-informatie', [JobController::class, 'filterJobs'])->name('aanvullende-informatie');
+Route::post('/aanvullende-informatie', [JobController::class, 'filter'])->name('aanvullende-informatie');
 
 // Route for displaying the filtered jobs (GET)
 Route::get('/filter-vacatures', [JobController::class, 'showFilteredJobs'])->name('filter.vacatures');

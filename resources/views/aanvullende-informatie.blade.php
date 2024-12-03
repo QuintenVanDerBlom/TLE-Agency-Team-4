@@ -1,6 +1,10 @@
 <x-layout>
-    <h3 class="information">
-    Heb je een beperking die een werkgever in de gaten moet houden? (Meerdere antwoorden mogelijk)</h3>
+    <h3 class="title">
+        Stap 3: Geef aan wat extra informatie van jezelf</h3>
+    <hr style="border: none; border-top: 2px solid black; width: 100%;" />
+
+    <p class="information">
+    Heb je een beperking die een werkgever in de gaten moet houden? (Meerdere antwoorden mogelijk)</p>
 
     <section class="checkbox-container">
     <form action= "{{route('aanvullende-informatie')}}" method="POST">
