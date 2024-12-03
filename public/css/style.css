@@ -139,10 +139,11 @@ font-size: 2rem;
 
 .circle-text {
     display: flex;
-    align-items: start;
     gap: 1rem;
     font-size: 1.3rem;
     text-align: start;
+    align-items: center;
+    margin: 0 0.3rem;
 }
 
 /* Circle for items aligned left */
