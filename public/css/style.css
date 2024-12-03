@@ -124,4 +124,11 @@ font-size: 2rem;
     position: fixed;
     bottom: 0;
 }
+.line {
+    height: 2px; /* Dikte van de lijn */
+    background-color: black; /* Kleur van de lijn */
+    width: 90%; /* Breedte van de lijn */
+    margin: 20px 0; /* Ruimte erboven en eronder */
+}
+
 
