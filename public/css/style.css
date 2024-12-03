@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
 body {
     font-family: "Kantumruy Pro", sans-serif;
+    margin-bottom: 13vh;
 }
 
 * {
