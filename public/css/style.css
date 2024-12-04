@@ -37,7 +37,7 @@ li{
     height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
+    z-index: 10000; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
     background-color: #EBE4C7; /* Black*/
@@ -51,15 +51,26 @@ li{
     align-items: center;
 
 }
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 0.5rem;
+    font-size: 3rem;
+    padding:  0.5rem 1rem;
+    text-decoration: none;
+    color: #313D29;
+}
+
 
 /* The navigation menu links */
-.sideNav a {
+.navText {
     padding:  0.5rem 1rem;
     text-decoration: none;
     color: #313D29;
     display: block;
     transition: 0.3s;
     font-family: "Kantumruy Pro", sans-serif;
+    font-size: 1.4rem;
 }
 
 /* When you mouse over the navigation links, change their color */
@@ -68,12 +79,7 @@ li{
 }
 
 /* Position and style the close button (top right corner) */
-.closebtn {
-    position: absolute;
-    top: 0;
-    right: 0.5rem;
-    font-size: 2rem;
-}
+
 
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
