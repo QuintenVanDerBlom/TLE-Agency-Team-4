@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class JobListing extends Model
 {
+    protected $table = 'job_listings';
     protected $fillable = ['name', 'company_id', 'salary', 'hours', 'job_listing_category_id', 'job_listing_requirement_id'];
 
     public function users(): BelongsToMany
