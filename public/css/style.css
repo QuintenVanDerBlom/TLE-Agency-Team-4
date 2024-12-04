@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
 html, body {
-    height: 100%; /* Full height of the viewport */
-    margin: 0; /* Remove default margin */
+    margin-bottom: 18vw; /* Remove default margin */
+    font-family: "Kantumruy Pro", sans-serif;
 }
 .seperation {
     border: none; /* Remove the default border */
@@ -72,11 +72,6 @@ html, body {
 }
 
 
-body {
-    font-family: "Kantumruy Pro", sans-serif;
-    margin-bottom: 13vh;
-}
-
 * {
     font-family: "Kantumruy Pro", sans-serif;
     margin-bottom: 12vh;
@@ -84,7 +79,7 @@ body {
 
 h1 {
     font-family: "Jost", sans-serif;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-style: italic;
     font-weight: normal;
     border-bottom: 1px solid black;
@@ -117,11 +112,13 @@ li{
     z-index: 10000; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background-color: #EBE4C7; /* Black*/
+    background-color: #EBE4C7; /* Background color */
     overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 1rem; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    padding-top: 1rem; /* Place content from the top */
+    transition: 0.5s; /* Transition effect */
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.3); /* Add shadow */
 }
+
 .confirmation-center{
     display: flex;
     flex-direction: column;
@@ -232,6 +229,7 @@ font-size: 2rem;
     flex-direction: column;
     gap: 3vh;
     counter-reset: item;
+    align-items: center;
 }
 
 #labels {
@@ -351,7 +349,6 @@ font-size: 2rem;
 
 .job-block {
     display: flex;
-    align-items: center;
     justify-content: space-between;
     border: 1px solid #dcdcdc;
     border-radius: 10px;
@@ -360,6 +357,12 @@ font-size: 2rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-decoration: none;
     flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.category-div{
+    display: flex;
+    flex-direction: row;
 }
 
 .job-image img {
@@ -427,9 +430,11 @@ font-size: 2rem;
     flex-direction: row;
     border: 1px solid #EBE4C7;
     width: 80vw;
-    height: 10vh;
+    height: 12vh;
     gap: 2vw;
     border-radius: 15px;
+    padding: 0.2rem 0;
+    align-items: center;
 }
 
 #cat-title {
@@ -452,6 +457,8 @@ font-size: 2rem;
     align-items: start;
     margin-right: 10px;
     width: 25vw;
+    height: 100%;
+    justify-content: space-around;
 }
 
 #cat-item a {
@@ -467,8 +474,6 @@ font-size: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     transition: all 0.3s ease;
     display: block;
-    margin-top: 35px;
-    margin-left: 5px;
     padding-top: 5px;
     text-decoration: none;
 }
@@ -515,4 +520,32 @@ font-size: 2rem;
     font-size: 1rem;
     font-weight: normal;
     padding: 0.1rem;
+}
+.cat-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* De container */
+.header-container {
+    display: flex;                  /* Gebruik flexbox */
+    align-items: center;            /* Centreer items verticaal */
+    position: relative;             /* Maak de container een positioneringsreferentie */
+    height: 60px;                   /* Stel de hoogte van de container in */
+}
+
+/* De knop (pijl) */
+.back-button img {
+    width: 2rem;                    /* Pas de breedte aan (maak de knop kleiner) */
+    height: auto;                   /* Behoud de aspect ratio */
+    position: absolute;             /* Absoluut gepositioneerd */
+    left: -2.5rem;                        /* Helemaal links */
+    top: 50%;                       /* Verticaal gecentreerd */
+    transform: translateY(-50%);    /* Corrigeer verticale uitlijning */
+}
+
+/* De tekst (Sectoren) */
+.centered-text {
+    margin: 0 auto;                 /* Zorg dat de tekst gecentreerd blijft */
+    text-align: center;             /* Optioneel: extra centreren */
 }
