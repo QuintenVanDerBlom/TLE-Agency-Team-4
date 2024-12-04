@@ -2,7 +2,7 @@
     <img id="banner-image" src="{{ asset("/images/banner.png") }}" alt="banner image">
 
     <section id="lp-maincontent">
-        <p id="labels">Werk voor iedereen!</p>
+        <h1>Werk voor iedereen!</h1>
         <div class="lp-item">
             <p class="circle-text">Direct reageren. Zonder sollicitatiegesprek, vragen of (voor)oordelen. Een eerlijke kans.</p>
         </div>

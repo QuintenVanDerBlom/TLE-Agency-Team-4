@@ -24,7 +24,7 @@
                 padding: 15px;
                 background-color: #fafafa;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                width: 300px; /* Zorg dat alle categorieën dezelfde breedte hebben */
+                width: 90vw; /* Zorg dat alle categorieën dezelfde breedte hebben */
             }
 
             .vacancy-card-content {
@@ -85,64 +85,55 @@
             .header {
                 display: flex;
                 align-items: center;
-                gap: 10px;  /* Zorgt voor wat ruimte tussen het pijltje en de titel */
+                gap: 10px; /* Zorgt voor wat ruimte tussen het pijltje en de titel */
             }
 
             .back-arrow {
-                width: 30px;  /* Pas de grootte van de pijl aan */
+                width: 30px; /* Pas de grootte van de pijl aan */
                 height: 30px;
-                cursor: pointer;  /* Zorgt ervoor dat de cursor verandert naar een pointer */
-                transition: transform 0.3s ease;  /* Zorgt voor een animatie bij hover */
+                cursor: pointer; /* Zorgt ervoor dat de cursor verandert naar een pointer */
+                transition: transform 0.3s ease; /* Zorgt voor een animatie bij hover */
             }
 
             .back-arrow:hover {
-                transform: scale(1.1);  /* Vergroot de pijl een beetje als de gebruiker eroverheen hovert */
-            }
-
-            h1 {
-                margin: 0;
-                font-size: 24px;
-                color: #333;  /* Pas de kleur van de tekst aan naar wens */
+                transform: scale(1.1); /* Vergroot de pijl een beetje als de gebruiker eroverheen hovert */
             }
 
         </style>
     </head>
-    <body>
+    <div class="cat-container">
+        <div id="stap2" class="header-container">
+            <a href="javascript:history.back()" class="back-button">
+                <img src="{{ asset('/images/backarrow.png') }}" alt="back-button">
+            </a>
+            <h1 class="centered-text">Vacatures</h1>
+        </div>
 
-    <div class="header">
-        <a href="">
-            <img src="{{ asset('/images/bedrijf/arrowb.png') }}" alt="Terug naar vorige pagina" class="back-arrow">
-        </a>
-        <h1> [ROL] Vacatures</h1>
-    </div>
+        <div class="vacancies">
 
-    <div class="vacancies">
-
-        @foreach($jobListings as $job)
-            <div class="vacancy-card">
-                <div class="vacancy-card-content">
-                    <img src="{{ asset('/images/bedrijf/bedrijf.png') }}" alt="Vacature afbeelding">
-                   <a href="{{ route('joblistings.show', ['id' => $job->id]) }}" class="vacancy-card-link">
-                        <h2>{{ $job->company->name }}</h2>
-                        <p><strong>Loon:</strong> €{{ number_format($job->salary, 2) }},- p.u.</p>
-                        <p><strong>Uren:</strong> {{ $job->hours }}</p>
-                        <p><strong>Locatie:</strong> {{ $job->company->location }}</p>
-                    </a>
+            @forelse($jobListings as $job)
+                <div class="vacancy-card">
+                    <div class="vacancy-card-content">
+                        <img src="{{ asset('/images/bedrijf/bedrijf.png') }}" alt="Vacature afbeelding">
+                        <a href="{{ route('joblistings.show', ['id' => $job->id]) }}" class="vacancy-card-link">
+                            <h2>{{ $job->company->name }}</h2>
+                            <p><strong>Loon:</strong> €{{ number_format($job->salary, 2) }},- p.m.</p>
+                            <p><strong>Uren:</strong> {{ $job->hours }}</p>
+                            <p><strong>Locatie:</strong> {{ $job->company->location }}</p>
+                        </a>
+                    </div>
+                    <div class="apply-btn-link">
+                        <a href="{{ route('joblistings.show', ['id' => $job->id]) }}">
+                            <button class="apply-btn">Inschrijven</button>
+                        </a>
+                    </div>
                 </div>
-                <div class="apply-btn-link">
-                    <a href="{{ route('joblistings.show', ['id' => $job->id]) }}">
-                        <button class="apply-btn">Inschrijven</button>
-                    </a>
-                </div>
-            </div>
-        @endforeach
 
+            @empty
+                <p>Geen vacatures gevonden.</p>
+            @endforelse
 
-    @empty($jobListing)
-            <p>Geen vacatures gevonden.</p>
-            @endempty
-
+        </div>
     </div>
-    </body>
     </html>
 </x-layout>

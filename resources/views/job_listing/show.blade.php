@@ -11,10 +11,19 @@
             border: 1px solid #ddd; /* Optioneel voor visuele structuur */
             border-radius: 0.2rem;
         }
+        .back-button img {
+            left: -2.2rem;                        /* Helemaal links */
+        }
     </style>
 
     <section class="confirmation-center">
-        <h1>Bevestiging</h1>
+        <div class="cat-container">
+            <div id="stap2" class="header-container">
+                <a href="javascript:history.back()" class="back-button">
+                    <img src="{{ asset('/images/backarrow.png') }}" alt="back-button">
+                </a>
+                <h1 class="centered-text">Bevestiging</h1>
+            </div>
         <h2>{{ $jobListing->company->name }}</h2>
         <h3>{{ $jobListing->name }}</h3>
 
