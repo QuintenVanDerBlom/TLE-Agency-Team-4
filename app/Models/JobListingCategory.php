@@ -16,7 +16,7 @@ class JobListingCategory extends Model
     {
         return $this->belongsToMany(
             Category::class,
-            'category_job_listing_categories',
+            'category_job_listing_category',
             'job_listing_category_id',
             'category_id'
         );
