@@ -122,9 +122,8 @@
             <div class="vacancy-card">
                 <div class="vacancy-card-content">
                     <img src="{{ asset('/images/bedrijf/bedrijf.png') }}" alt="Vacature afbeelding">
-                    <a href="{{ route('joblistings.show', ['id' => $job->id]) }}" class="vacancy-card-link">
+                   <a href="{{ route('joblistings.show', ['id' => $job->id]) }}" class="vacancy-card-link">
                         <h2>{{ $job->company->name }}</h2>
-{{--                        <p><strong>Bedrijf:</strong> {{ $job->company->name }}</p>--}}
                         <p><strong>Loon:</strong> €{{ number_format($job->salary, 2) }},- p.u.</p>
                         <p><strong>Uren:</strong> {{ $job->hours }}</p>
                         <p><strong>Locatie:</strong> {{ $job->company->location }}</p>
@@ -138,7 +137,8 @@
             </div>
         @endforeach
 
-            @empty($jobListing)
+
+    @empty($jobListing)
             <p>Geen vacatures gevonden.</p>
             @endempty
 

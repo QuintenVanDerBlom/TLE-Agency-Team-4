@@ -29,8 +29,4 @@ class JobListing extends Model
     {
         return $this->belongsTo(Company::class);
     }
-    public function company()
-    {
-        return $this->belongsTo(Company::class);
-    }
 }
