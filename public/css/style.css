@@ -1,5 +1,77 @@
 @import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
+html, body {
+    height: 100%; /* Full height of the viewport */
+    margin: 0; /* Remove default margin */
+}
+.seperation {
+    border: none; /* Remove the default border */
+    border-top: 1px solid black; /* Add a solid black top border */
+    width: 90%; /* Make the line span the full width of its container */
+    margin: 0 auto;
+}
+
+.title {
+    font-family: Jost,sans-serif;
+    padding: 0.5rem 1rem 1rem 1rem; /* [top] [right] [bottom] [left];*/
+    text-align: center;
+
+}
+
+.clarification {
+    font-family: "Khula", sans-serif;
+    font-size: 1rem;
+    display: flex;
+    justify-items: center;
+    padding: 0.2rem 1rem 0.5rem 1rem; /* [top] [right] [bottom] [left];*/
+    text-align: center;
+}
+
+
+.button {
+    display: flex;
+    justify-content: center; /* Align horizontally */
+    align-items: center; /* Align vertically */
+    height: 10vh; /* Full viewport height to center in the page */
+    padding: 2rem 6rem 1.5rem 5rem; /* [top] [right] [bottom] [left];*/
+}
+
+.checkbox-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the left */
+    gap: 1.5rem; /* Add space between items */
+    font-family: "Kantumruy Pro", sans-serif;
+    padding: 0rem 1rem 3rem 1rem; /* [top] [right] [bottom] [left];*/
+    font-size: 1.25rem;
+}
+
+.information {
+    font-family: "Kantumruy Pro", sans-serif;
+    padding: 1rem 1rem 0.5rem 1rem; /* [top] [right] [bottom] [left];*/
+    font-size: 1.5rem;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center; /* Align input and label on the same line */
+    gap: 0.5rem; /* Space between checkbox and label */
+}
+
+
+/* Style the button */
+.button input[type="submit"] {
+    background-color: #313D29; /* Green background */
+    color: white; /* White text */
+    padding: 0.75rem 1.5rem; /* Add padding around the text */
+    font-size: 1.25rem; /* Increase font size */
+    border: none; /* Remove default border */
+    border-radius: 0.5rem; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+
 body {
     font-family: "Kantumruy Pro", sans-serif;
 }
