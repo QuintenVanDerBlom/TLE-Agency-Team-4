@@ -1,21 +1,22 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\JobListingCategoryController;
-use App\Http\Controllers\JobListingController;
+use App\Http\Controllers\JobController;
+use App\Http\Controllers\RequirementController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
 });
 
-Route::resource('/categories',CategoryController::class);
-Route::resource('/joblistingcategories', JobListingCategoryController::class);
-Route::resource('/joblistings', JobListingController::class);
 
-Route::get('/joblistings/{id}', [JobListingCategoryController::class, 'show'])->name('joblistings.show');
+// GET route to show the form
+Route::get('/aanvullende-informatie', function () {
+    return view('aanvullende-informatie');
+})->name('aanvullende-informatie');
 
+// POST route to handle form submission
+Route::post('/aanvullende-informatie', [RequirementController::class, 'index'])->name('aanvullende-informatie');
 
-
-
+// Route for displaying the filtered jobs (GET)
+Route::get('/vacatures', [RequirementController::class, 'showFilteredJobs'])->name('vacatures');
 
