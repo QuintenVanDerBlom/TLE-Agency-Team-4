@@ -11,10 +11,12 @@ Route::get('/', function () {
 });
 
 Route::resource('/categories',CategoryController::class);
-Route::resource('/joblistingcategories', JobListingCategoryController::class);
 Route::resource('/joblistings', JobListingController::class);
 
-Route::get('/joblistingscategory/{id}', [JobListingCategoryController::class, 'show'])->name('joblistings.show');
+Route::get('joblistingcategories/{id}', [JobListingCategoryController::class, 'index'])->name('joblistingcategories.index');
+
+
+
 
 
 

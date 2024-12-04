@@ -22,7 +22,7 @@ class JobListing extends Model
 
     public function categories(): BelongsToMany
     {
-        return $this->belongsToMany(Category::class, 'category_job_listing_categories', 'job_listing_category_id', 'category_id');
+        return $this->belongsToMany(Category::class, 'category_job_listing_category', 'job_listing_category_id', 'category_id');
     }
 }
 

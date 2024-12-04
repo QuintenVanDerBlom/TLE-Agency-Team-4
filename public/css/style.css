@@ -222,6 +222,9 @@ font-size: 2rem;
     color: white;
     font-size: 1.5rem;
     border-radius: 15px;
+    text-align: center;
+    padding-top: 17px;
+    text-decoration: none;
 }
 
 .flex-content{
@@ -367,7 +370,7 @@ font-size: 2rem;
     width: 25vw;
 }
 
-#cat-item button {
+#cat-item a {
     width: 20vw;
     height: 5vh;
     background-color: #313D29;
@@ -382,6 +385,8 @@ font-size: 2rem;
     display: block;
     margin-top: 35px;
     margin-left: 5px;
+    padding-top: 5px;
+    text-decoration: none;
 }
 
 /* Hover effect */
