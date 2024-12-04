@@ -13,11 +13,12 @@ class JobListingController extends Controller
      */
     public function index(JobListingsCategory $jobListingsCategory)
     {
-        // Haal alle JobListings op die aan deze JobListingsCategory gekoppeld zijn
-        //$jobListings = $jobListingsCategory->jobListings()->with(['company', 'categories'])->get();
-        $jobListings = JobListing::all();
-        // Geef de resultaten door aan de view
-       return view('job_listing.index', compact('jobListings'));
+
+      $jobListings = JobListing::all();
+       // $jobListings = JobListing::with('category')->get();
+       // $categoryId = $jobListings->first()->job_listing_category_id; // Haal de category ID van de eerste vacature, of pas dit aan zoals nodig
+
+        return view('job_listing.index', compact('jobListings'));
     }
 
 
@@ -46,7 +47,7 @@ class JobListingController extends Controller
         $jobListings = JobListing::with('company')->findOrFail($id);
 
         // Toon de view met de vacaturedetails
-        return view('job_listing.show', compact('jobListings'));
+        return view('job_listing_category.index', compact('jobListings'));
     }
 
 

@@ -113,18 +113,19 @@
         <a href="">
             <img src="{{ asset('/images/bedrijf/arrowb.png') }}" alt="Terug naar vorige pagina" class="back-arrow">
         </a>
-        <h1>[ROL] Vacatures</h1>
+        <h1> [ROL] Vacatures</h1>
     </div>
 
     <div class="vacancies">
-        @forelse($jobListings as $job)
+
+        @foreach($jobListings as $job)
             <div class="vacancy-card">
                 <div class="vacancy-card-content">
                     <img src="{{ asset('/images/bedrijf/bedrijf.png') }}" alt="Vacature afbeelding">
                     <a href="{{ route('joblistings.show', ['id' => $job->id]) }}" class="vacancy-card-link">
-                        <h2>{{ $job->name }}</h2>
-                        <p><strong>Bedrijf:</strong> {{ $job->company->name }}</p>
-                        <p><strong>Loon:</strong> €{{ number_format($job->salary, 2) }}</p>
+                        <h2>{{ $job->company->name }}</h2>
+{{--                        <p><strong>Bedrijf:</strong> {{ $job->company->name }}</p>--}}
+                        <p><strong>Loon:</strong> €{{ number_format($job->salary, 2) }},- p.u.</p>
                         <p><strong>Uren:</strong> {{ $job->hours }}</p>
                         <p><strong>Locatie:</strong> {{ $job->company->location }}</p>
                     </a>
@@ -135,9 +136,12 @@
                     </a>
                 </div>
             </div>
-        @empty
+        @endforeach
+
+            @empty($jobListing)
             <p>Geen vacatures gevonden.</p>
-        @endforelse
+            @endempty
+
     </div>
     </body>
     </html>
