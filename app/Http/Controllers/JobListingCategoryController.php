@@ -11,15 +11,16 @@ class JobListingCategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Category $category)
+    public function index($id)
     {
-        // Haal alle JobListingsCategories op die gekoppeld zijn aan de opgegeven Category
-//        $jobListingsCategories = $category->jobListingCategories;
-        $jobListingsCategories = JobListingCategory::all();
+        $category = Category::with('jobListingCategories')->findOrFail($id);
 
-        // Retourneer de view met de resultaten en de category
+        $jobListingsCategories = $category->jobListingCategories;
+
         return view('job_listing_category.index', compact('jobListingsCategories', 'category'));
     }
+
+
 
 
     /**
