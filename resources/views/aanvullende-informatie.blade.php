@@ -1,7 +1,12 @@
 <x-layout>
     <h3 class="title">
         Stap 3: Geef aan wat extra informatie van jezelf</h3>
-    <hr style="border: none; border-top: 2px solid black; width: 100%;" />
+
+    <p class="clarification">
+        Deze informatie is alleen bedoeld zodat we de vacatures voor jouw kan filteren.</p>
+
+    <hr class="seperation" />
+
 
     <p class="information">
     Heb je een beperking die een werkgever in de gaten moet houden? (Meerdere antwoorden mogelijk)</p>
