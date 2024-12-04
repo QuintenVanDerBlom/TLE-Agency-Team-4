@@ -19,7 +19,7 @@ html, body {
 
 .clarification {
     font-family: "Khula", sans-serif;
-    font-size: smaller;
+    font-size: 1rem;
     display: flex;
     justify-items: center;
     padding: 0.2rem 1rem 0.5rem 1rem; /* [top] [right] [bottom] [left];*/
@@ -32,30 +32,29 @@ html, body {
     justify-content: center; /* Align horizontally */
     align-items: center; /* Align vertically */
     height: 10vh; /* Full viewport height to center in the page */
-    padding: 1rem 6rem 1.5rem 5rem; /* [top] [right] [bottom] [left];*/
+    padding: 2rem 6rem 1.5rem 5rem; /* [top] [right] [bottom] [left];*/
 }
 
 .checkbox-container {
     display: flex;
     flex-direction: column; /* Stack items vertically */
     align-items: flex-start; /* Align items to the left */
-    gap: 0.5rem; /* Add space between items */
+    gap: 1.5rem; /* Add space between items */
     font-family: "Kantumruy Pro", sans-serif;
-    padding: 0rem 1.2rem 1rem 1.2rem; /* [top] [right] [bottom] [left];*/
-
+    padding: 0rem 1rem 3rem 1rem; /* [top] [right] [bottom] [left];*/
+    font-size: 1.25rem;
 }
 
 .information {
     font-family: "Kantumruy Pro", sans-serif;
     padding: 1rem 1rem 0.5rem 1rem; /* [top] [right] [bottom] [left];*/
-    font-size: 1.2rem;
-
+    font-size: 1.5rem;
 }
 
 .checkbox-item {
     display: flex;
     align-items: center; /* Align input and label on the same line */
-    gap: 0.5rem; /* Space between radio button and label */
+    gap: 0.5rem; /* Space between checkbox and label */
 }
 
 

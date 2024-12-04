@@ -1,6 +1,6 @@
 <x-layout>
     <h3 class="title">
-        Stap 3: Geef aan wat extra informatie van jezelf</h3>
+        Stap 3: Geef wat extra informatie over jezelf</h3>
 
     <p class="clarification">
         Deze informatie is alleen bedoeld zodat we de vacatures voor jouw kan filteren.</p>
@@ -46,7 +46,7 @@
 
     <section class="checkbox-item">
     <input type="checkbox" id="verstandelijke-beperking" name="keuze[]" value="Verstandelijke beperking">
-    <label for="verstandelijke-beperking">Visuele Beperking</label>
+    <label for="verstandelijke-beperking">Verstandelijke beperking</label>
     </section>
 
     <section class="checkbox-item">
