@@ -15,4 +15,6 @@ Route::get('/', function () {
 Route::resource('/categories',CategoryController::class);
 Route::resource('/joblistingcategories', JobListingCategoryController::class);
 Route::get('/joblistings', [JobListingController::class, 'index']);
+Route::get('/joblistings/{id}', [JobListingController::class, 'show'])->name('joblistings.show');
+
 
