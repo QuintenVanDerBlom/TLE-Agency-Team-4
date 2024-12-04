@@ -81,15 +81,44 @@
             .apply-btn:hover {
                 background-color: #2a3423;
             }
+
+            .header {
+                display: flex;
+                align-items: center;
+                gap: 10px;  /* Zorgt voor wat ruimte tussen het pijltje en de titel */
+            }
+
+            .back-arrow {
+                width: 30px;  /* Pas de grootte van de pijl aan */
+                height: 30px;
+                cursor: pointer;  /* Zorgt ervoor dat de cursor verandert naar een pointer */
+                transition: transform 0.3s ease;  /* Zorgt voor een animatie bij hover */
+            }
+
+            .back-arrow:hover {
+                transform: scale(1.1);  /* Vergroot de pijl een beetje als de gebruiker eroverheen hovert */
+            }
+
+            h1 {
+                margin: 0;
+                font-size: 24px;
+                color: #333;  /* Pas de kleur van de tekst aan naar wens */
+            }
+
         </style>
     </head>
     <body>
-    <h1>[ROL] Vacatures</h1>
+
+    <div class="header">
+        <a href="">
+            <img src="{{ asset('/images/bedrijf/arrowb.png') }}" alt="Terug naar vorige pagina" class="back-arrow">
+        </a>
+        <h1>[ROL] Vacatures</h1>
+    </div>
 
     <div class="vacancies">
         @forelse($jobListings as $job)
             <div class="vacancy-card">
-                <!-- Vacature inhoud (afbeelding + tekst) -->
                 <div class="vacancy-card-content">
                     <img src="{{ asset('/images/bedrijf/bedrijf.png') }}" alt="Vacature afbeelding">
                     <a href="{{ route('joblistings.show', ['id' => $job->id]) }}" class="vacancy-card-link">
@@ -100,8 +129,6 @@
                         <p><strong>Locatie:</strong> {{ $job->company->location }}</p>
                     </a>
                 </div>
-
-                <!-- Knop sectie -->
                 <div class="apply-btn-link">
                     <a href="{{ route('joblistings.show', ['id' => $job->id]) }}">
                         <button class="apply-btn">Inschrijven</button>
