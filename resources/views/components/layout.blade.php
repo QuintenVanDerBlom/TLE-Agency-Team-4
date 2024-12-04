@@ -15,20 +15,18 @@
         <div class = "header-item"><img id="profile-picture" src="{{ asset('/images/pfp.png') }}" alt="profile picture"></div>
     </header>
     {{ $slot }}
+    <footer>
 
-
+    <footer id="main-footer">
+        <div>
+                <p>☎: (+31)06-12345678</p>
+                <p>✉: Openhiring@oh.nl</p>
+                <p>📍: Klokgebouw 188, Eindhoven</p>
+                <p>@: Onze Contact Pagina</p>
+        </div>
+        <div>
+            <img id="header-logo" src="{{ asset('/images/logos/logo.png') }}" alt="website logo">
+        </div>
+    </footer>
 </body>
-<footer id="main-footer">
-    <div>
-        <ul>
-            <li>☎: (+31)06-12345678</li>
-            <li>✉: Openhiring@oh.nl</li>
-            <li>📍: Pernisstraat 69</li>
-            <li>@: Onze Contact Pagina</li>
-        </ul>
-    </div>
-    <div>
-        <img id="header-logo" src="{{ asset('/images/logos/logo.png') }}" alt="website logo">
-    </div>
-</footer>
 </html>
