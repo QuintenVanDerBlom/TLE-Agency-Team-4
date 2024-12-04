@@ -178,7 +178,7 @@ font-size: 2rem;
     padding: 15px;
     background-color: #fafafa;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Zorg dat de job-block voldoende ruimte heeft voor inhoud */
+    text-decoration: none;
     flex-wrap: wrap;
 }
 

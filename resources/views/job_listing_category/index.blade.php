@@ -11,19 +11,19 @@
         <section>
             <div class="category-blocks">
                 @foreach($jobListingsCategories as $jobListingCategory)
-                    <div class="job-block">
+                    <a href="{{ route('joblistings.show', ['id' => $jobListingCategory->id]) }}" class="job-block">
                         <div class="job-image">
                             <!-- Je kunt hier een afbeelding toevoegen vanuit de database, indien beschikbaar -->
                             <img src="{{ asset('/images/happybusiness.jpg') }}" alt="job image">
                         </div>
                         <div class="job-content">
                             <h3>{{ $jobListingCategory->name }}</h3>
-                                <p>{{ $jobListingCategory->information }}</p>
+                            <p>{{ $jobListingCategory->information }}</p>
                         </div>
                         <div class="job-action">
                             <button>Aanmelden</button>
                         </div>
-                    </div>
+                    </a>
                 @endforeach
             </div>
         </section>
