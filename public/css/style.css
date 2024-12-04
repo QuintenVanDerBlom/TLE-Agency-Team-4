@@ -10,7 +10,7 @@ body {
     margin-bottom: 12vh;
 }
 
-h1{
+h1 {
     font-family: "Jost", sans-serif;
     font-size: 2rem;
     font-style: italic;
@@ -31,12 +31,18 @@ h3{
     font-weight: normal;
     padding: 0.1rem;
 }
+p{
+    font-size: 0.9rem;
+}
+li{
+    font-size: 0.9rem;
+}
 /* The side navigation menu */
 .sideNav {
     height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
+    z-index: 10000; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
     background-color: #EBE4C7; /* Black*/
@@ -50,15 +56,26 @@ h3{
     align-items: center;
 
 }
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 0.5rem;
+    font-size: 3rem;
+    padding:  0.5rem 1rem;
+    text-decoration: none;
+    color: #313D29;
+}
+
 
 /* The navigation menu links */
-.sideNav a {
+.navText {
     padding:  0.5rem 1rem;
     text-decoration: none;
     color: #313D29;
     display: block;
     transition: 0.3s;
     font-family: "Kantumruy Pro", sans-serif;
+    font-size: 1.4rem;
 }
 
 /* When you mouse over the navigation links, change their color */
@@ -67,12 +84,7 @@ h3{
 }
 
 /* Position and style the close button (top right corner) */
-.closebtn {
-    position: absolute;
-    top: 0;
-    right: 0.5rem;
-    font-size: 2rem;
-}
+
 
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
@@ -407,3 +419,28 @@ font-size: 2rem;
     flex-direction: column;
 }
 
+.underline-box{
+    border-top: 0.2rem dotted #D9D9D9;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 90vw;
+    margin: 0.5rem;
+    padding: 0.5rem 0;
+}
+.underline-box h3{
+    align-self: center;
+    padding-bottom: 0.4rem;
+}
+.button-bevestiging{
+    width:  95vw;
+    height: 3rem;
+    background-color: #229508;
+    color: white;
+    border-radius: 0.3rem;
+    border: none;
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    padding: 0.1rem;
+}

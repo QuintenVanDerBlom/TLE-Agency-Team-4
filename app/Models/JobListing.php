@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class JobListing extends Model
 {
+    protected $table = 'job_listings';
     protected $fillable = ['name', 'company_id', 'salary', 'hours', 'job_listing_category_id', 'job_listing_requirement_id'];
 
     public function users(): BelongsToMany
@@ -25,6 +26,10 @@ class JobListing extends Model
         return $this->belongsToMany(Category::class, 'category_job_listing_category', 'job_listing_category_id', 'category_id');
     }
     public function company(): BelongsTo
+    {
+        return $this->belongsTo(Company::class);
+    }
+    public function company()
     {
         return $this->belongsTo(Company::class);
     }
