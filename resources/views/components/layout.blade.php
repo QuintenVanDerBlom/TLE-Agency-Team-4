@@ -26,7 +26,7 @@
 
         <p>☎: (+31)06-12345678</p>
         <p>✉: Openhiring@oh.nl</p>
-        <p>📍: Pernisstraat 69</p>
+        <p>📍: Klokgebouw 188, 7de etage.</p>
 
     </div>
     <div>
