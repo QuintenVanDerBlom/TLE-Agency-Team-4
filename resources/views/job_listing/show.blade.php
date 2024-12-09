@@ -31,8 +31,8 @@
             <p>Overzicht</p>
                 <li>Gemiddeld {{ $jobListing->hours }} uur per week</li>
                 <li>€{{ number_format($jobListing->salary / ($jobListing->hours * 7), 2) }} gemiddeld per uur (afhankelijk van leeftijd)</li>
-                <li>Bijzonderheden: {{ $jobListing->details }}</li>
-                <li>Taken: {{ $jobListing->tasks }}</li>
+{{--                <li>Bijzonderheden: {{ $jobListing->details }}</li>--}}
+{{--                <li>Taken: {{ $jobListing->tasks }}</li>--}}
         </div>
 
         <div class="underline-box">
