@@ -9,24 +9,29 @@
     <title>Open Hiring</title>
 </head>
 <body>
-    <header id="main-header">
-        <x-layout-nav><div class = "header-item"><button id="hamburger-menu-button" type="button">☰</button></div></x-layout-nav>
-        <div class = "header-item"><img id="header-logo" src="{{ asset('/images/logos/logo.png') }}" alt="website logo"></div>
-        <div class = "header-item"><img id="profile-picture" src="{{ asset('/images/pfp.png') }}" alt="profile picture"></div>
-    </header>
-    {{ $slot }}
-    <footer>
+<header id="main-header">
+    <x-layout-nav>
+        <div class="header-item">
+            <button id="hamburger-menu-button" type="button">☰</button>
+        </div>
+    </x-layout-nav>
+    <div class="header-item"><a href = "{{route('index')}}"><img id="header-logo" src="{{ asset('/images/logos/logo.png') }}" alt="website logo"></a></div>
+    <div class="header-item"><img id="profile-picture" src="{{ asset('/images/pfp.png') }}" alt="profile picture"></div>
+</header>
+{{ $slot }}
 
-    <footer id="main-footer">
-        <div>
-                <p>☎: (+31)06-12345678</p>
-                <p>✉: Openhiring@oh.nl</p>
-                <p>📍: Klokgebouw 188, Eindhoven</p>
-                <p>@: Onze Contact Pagina</p>
-        </div>
-        <div>
-            <img id="header-logo" src="{{ asset('/images/logos/logo.png') }}" alt="website logo">
-        </div>
-    </footer>
+
+<footer id="main-footer">
+    <div>
+
+        <p>☎: (+31)06-12345678</p>
+        <p>✉: Openhiring@oh.nl</p>
+        <p>📍: Klokgebouw 188, 7de etage.</p>
+
+    </div>
+    <div>
+        <img id="header-logo" src="{{ asset('/images/logos/logo.png') }}" alt="website logo">
+    </div>
+</footer>
 </body>
 </html>

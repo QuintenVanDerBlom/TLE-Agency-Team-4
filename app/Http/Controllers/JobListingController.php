@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\JobListing;
 use App\Models\JobListingCategory;
+use App\Models\JobListingsCategory;
 use Illuminate\Http\Request;
 
 class JobListingController extends Controller
@@ -11,14 +12,21 @@ class JobListingController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(JobListingCategory $jobListingsCategory)
+    public function index(Request $request, JobListingCategory $jobListingCategory)
     {
-        // Haal alle JobListings op die aan deze JobListingCategory gekoppeld zijn
-        $jobListings = $jobListingsCategory->jobListings;
+        $queryString = request()->query();
+//        echo $queryString['id'];
 
-        // Geef de resultaten door aan de view
-        return view('job_listing.index', compact('jobListings', 'jobListingsCategory'));
+        $jobListings = JobListing::where('job_listing_category_id', $queryString['id'])->get();
+        //dd($jobListings);
+        // Fetch job listings associated with the given category ID
+     //  $jobListings = $jobListingCategory->jobListings;
+     //  $jobListings = JobListing::all();
+
+        // Pass the job listings and the category to the view
+        return view('job_listing.index', compact('jobListings', 'jobListingCategory'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -39,10 +47,14 @@ class JobListingController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(JobListing $jobListing)
+    public function show($id)
     {
+        // Zoek de JobListing op basis van de id, of geef een 404-fout als deze niet bestaat
+        $jobListing = JobListing::findOrFail($id);
+
         // Geef de specifieke job listing door aan de view
         return view('job_listing.show', compact('jobListing'));
+
     }
 
     /**

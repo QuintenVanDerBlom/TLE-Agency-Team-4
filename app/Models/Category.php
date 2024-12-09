@@ -9,9 +9,9 @@ class Category extends Model
 {
     protected $fillable = ['name', 'information'];
 
-    public function jobListings(): BelongsToMany
+    public function jobListings()
     {
-        return $this->belongsToMany(JobListing::class, 'category_job_listing_categories', 'category_id', 'job_listing_category_id');
+        return $this->belongsToMany(JobListing::class, 'category_job_listing_category', 'category_id', 'job_listing_category_id');
     }
 
     // Definieer de relatie met JobListingCategory
