@@ -12,10 +12,13 @@
         <div class="lp-item">
             <p class="circle-text">Snel aan de slag. Met een normaal contract, vanaf dag 1 betaald.</p>
         </div>
+        <div id="lp-button-div">
+            <a href="{{ route('categories.index') }}" id="lp-button">Bekijk Vacatures</a>
+        </div>
     </section>
 
     <section id="random-job-postings">
-        <h2> Willekeurige Vacatures</h2>
+        <h2> Vacatures</h2>
         <ul>
             @foreach($randomJobListings as $job)
                 <li>
@@ -30,6 +33,6 @@
     </section>
     <h2>Voor meerdere vacatures kan je op de knop drukken</h2>
     <div id="lp-button-div">
-        <a href="{{ route('joblistings.index') }}" id="lp-button">Bekijk Vacatures</a>
+        <a href="{{ route('joblistings.index') }}" id="lp-button">Bekijk Alle Vacatures</a>
     </div>
 </x-layout>
