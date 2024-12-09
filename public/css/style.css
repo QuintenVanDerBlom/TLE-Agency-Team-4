@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
 html, body {
-    margin-bottom: 22vw; /* Remove default margin */
+    margin-bottom: 30vw; /* Remove default margin */
     font-family: "Kantumruy Pro", sans-serif;
 }
 .seperation {
@@ -112,7 +112,7 @@ li{
     z-index: 10000; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background-color: #EBE4C7; /* Background color */
+    background-color: #2E342A; /* Background color */
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 1rem; /* Place content from the top */
     transition: 0.5s; /* Transition effect */
@@ -132,7 +132,7 @@ li{
     font-size: 3rem;
     padding:  0.5rem 1rem;
     text-decoration: none;
-    color: #313D29;
+    color: white;
 }
 
 
@@ -140,7 +140,7 @@ li{
 .navText {
     padding:  0.5rem 1rem;
     text-decoration: none;
-    color: #313D29;
+    color: white;
     display: block;
     transition: 0.3s;
     font-family: "Kantumruy Pro", sans-serif;
@@ -170,11 +170,12 @@ li{
 #main-header {
     width: 100%;
     height: 10vh;
-    background: #EBE4C7;
+    background: white;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    box-shadow: 0.2px 0.5px 0.5px hsl(0deg 0% 0% / 0.49);
 }
 .header-item{
     width: 20vw;
@@ -187,11 +188,13 @@ li{
 font-size: 2rem;
     background-color: transparent;
     border: none;
+    box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2);
 }
 
 #header-logo {
     width: 20vw;
     height: auto;
+
 }
 
 #profile-picture {
@@ -207,7 +210,7 @@ font-size: 2rem;
 #main-footer {
     width: 100%;
     height: 12vh;
-    background: #EBE4C7;
+    background: #2E342A;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -215,6 +218,7 @@ font-size: 2rem;
     padding: 0 20px;
     position: fixed;
     bottom: 0;
+    color: white;
 }
 .line {
     height: 2px; /* Dikte van de lijn */
@@ -227,9 +231,23 @@ font-size: 2rem;
 #lp-maincontent {
     display: flex;
     flex-direction: column;
+    gap: 1.5vh;
+    counter-reset: item;
+    align-items: center;
+}
+
+.lp-container {
+    display: flex;
+    flex-direction: column;
     gap: 3vh;
     counter-reset: item;
     align-items: center;
+    color: black;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+    padding: 10px;
+    width: 95vw;
 }
 
 #labels {
@@ -275,9 +293,9 @@ font-size: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #313D29;
+    background-color: #FAEC02;
     font-size: 1.2rem;
-    color: white;
+    color: black;
     flex-shrink: 0;
 }
 
@@ -297,16 +315,17 @@ font-size: 2rem;
 
 #lp-button {
     width: 95vw;
-    height: 8vh;
+    height: 6vh;
     display: block;
-    margin: 0 auto;
-    background-color: #313D29;
+    margin: 5px auto;
+    background-color: #AA0160;
     color: white;
     font-size: 1.5rem;
     border-radius: 15px;
     text-align: center;
-    padding-top: 17px;
+    padding-top: 11px;
     text-decoration: none;
+    box-shadow: 2.8px 5.6px 5.6px hsl(0deg 0% 0% / 0.41);
 }
 
 .flex-content{
@@ -344,17 +363,16 @@ font-size: 2rem;
     flex-direction: column;
     gap: 20px;
     max-width: 90vw;
-    margin: 0 auto;
+    margin: 2vh auto;
 }
 
 .job-block {
     display: flex;
     justify-content: space-between;
-    border: 1px solid #dcdcdc;
     border-radius: 10px;
     padding: 15px;
-    background-color: #fafafa;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    box-shadow: 2.8px 5.6px 5.6px hsl(0deg 0% 0% / 0.41);
     text-decoration: none;
     flex-wrap: wrap;
     flex-direction: column;
@@ -390,7 +408,7 @@ font-size: 2rem;
     list-style-type: disc;
     margin: 10px 0 0 20px;
     padding: 0;
-    color: #555;
+    color: black;
     font-size: 14px;
 }
 
@@ -404,7 +422,7 @@ font-size: 2rem;
 
 .job-action button {
     padding: 10px 20px;
-    background-color: #3b463b;
+    background-color: #AA0160;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -512,7 +530,7 @@ font-size: 2rem;
 .button-bevestiging{
     width:  95vw;
     height: 3rem;
-    background-color: #229508;
+    background-color: #AA0160;
     color: white;
     border-radius: 0.3rem;
     border: none;
@@ -548,4 +566,96 @@ font-size: 2rem;
 .centered-text {
     margin: 0 auto;                 /* Zorg dat de tekst gecentreerd blijft */
     text-align: center;             /* Optioneel: extra centreren */
+}
+
+.vacancies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.vacancy-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #fafafa;
+    box-shadow: 2.8px 5.6px 5.6px hsl(0deg 0% 0% / 0.35);
+    width: 90vw; /* Zorg dat alle categorieën dezelfde breedte hebben */
+}
+
+.vacancy-card-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.vacancy-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.vacancy-card-link {
+    flex: 1;
+    text-decoration: none; /* Verwijder onderstreping van links */
+    color: inherit; /* Zorg dat de tekstkleur hetzelfde blijft */
+}
+
+.vacancy-card h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.vacancy-card p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.apply-btn-link {
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.apply-btn {
+    padding: 10px 20px;
+    background-color: #AA0160;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Maak de knop volledige breedte */
+    text-align: center;
+}
+
+.apply-btn:hover {
+    background-color: #2a3423;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Zorgt voor wat ruimte tussen het pijltje en de titel */
+}
+
+.back-arrow {
+    width: 30px; /* Pas de grootte van de pijl aan */
+    height: 30px;
+    cursor: pointer; /* Zorgt ervoor dat de cursor verandert naar een pointer */
+    transition: transform 0.3s ease; /* Zorgt voor een animatie bij hover */
+}
+
+.back-arrow:hover {
+    transform: scale(1.1); /* Vergroot de pijl een beetje als de gebruiker eroverheen hovert */
 }
