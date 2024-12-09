@@ -13,7 +13,7 @@
             <p class="circle-text">Snel aan de slag. Met een normaal contract, vanaf dag 1 betaald.</p>
         </div>
         <div id="lp-button-div">
-            <a href="{{ route('categories.index') }}" id="lp-button">Bekijk Vacatures</a>
+            <a href="{{ route('categories.index') }}" id="lp-button" aria-label="Bekijk vacatures">Bekijk Vacatures</a>
         </div>
     </section>
 
@@ -33,6 +33,8 @@
     </section>
     <h2>Voor meerdere vacatures kan je op de knop drukken</h2>
     <div id="lp-button-div">
-        <a href="{{ route('joblistings.index') }}" id="lp-button">Bekijk Alle Vacatures</a>
+        <a href="{{ route('joblistings.index') }}" id="lp-button" aria-label="Bekijk alle vacatures">Bekijk Alle Vacatures</a>
     </div>
+
+
 </x-layout>
