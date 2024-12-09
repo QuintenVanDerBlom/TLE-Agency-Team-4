@@ -23,7 +23,7 @@
             @foreach($randomJobListings as $job)
                 <li>
                     <h3> Baan titel:{{ $job->name }}</h3>
-                    <p> Salaris: {{ $job->salary }}</p>
+                    <p> Salaris:€{{ $job->salary }}</p>
                     <p>Uren: {{ $job->hours }}</p>
                     <a href="{{ route('joblistings.show', $job->id) }}">Meer Details</a>
 
