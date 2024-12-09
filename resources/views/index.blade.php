@@ -28,7 +28,7 @@
             @endforeach
         </ul>
     </section>
-    <h2>Voor meerdere vacatures kan je de knop drukken</h2>
+    <h2>Voor meerdere vacatures kan je op de knop drukken</h2>
     <div id="lp-button-div">
         <a href="{{ route('joblistings.index') }}" id="lp-button">Bekijk Vacatures</a>
     </div>
