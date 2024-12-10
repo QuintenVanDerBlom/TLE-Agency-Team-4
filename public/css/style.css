@@ -384,6 +384,23 @@ font-size: 2rem;
     margin-right: 0.8rem;
 }
 
+#random-job-postings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2vh;
+    width: 95vw;
+    margin-left: 2.5vw;
+    margin-bottom: 1vh;
+    border-radius: 15px;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+    padding: 15px;
+}
+
+#random-job-postings li {
+    margin-bottom: 1vh;
+}
+
 /* End of Mobile styling*/
 
 @media screen and (min-width: 768px) {
@@ -395,6 +412,15 @@ font-size: 2rem;
     #lp-button {
         width: 70vw; /* Adjust button width on medium screens */
         padding-top: 21px;
+    }
+
+    #random-job-postings {
+        width: 70vw;
+        margin-left: 15vw;
+    }
+
+    #random-job-postings h3, p, a {
+        font-size: 1.2rem;
     }
 }
 
@@ -702,6 +728,7 @@ font-size: 2rem;
     border: 1px solid #dcdcdc;
     border-radius: 10px;
     padding: 15px;
+    margin: 10px;
     background-color: #fafafa;
     box-shadow: 2.8px 5.6px 5.6px hsl(0deg 0% 0% / 0.35);
     width: 90vw; /* Zorg dat alle categorieën dezelfde breedte hebben */
@@ -779,7 +806,121 @@ font-size: 2rem;
     transform: scale(1.1); /* Vergroot de pijl een beetje als de gebruiker eroverheen hovert */
 }
 
+.filters {
+    max-width: 95vw;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+    padding: 10px;
+    border: #9ca3af 1px solid;
+    border-radius: 15px;
+}
+
+/* De achtergrond van de modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.open-modal-btn {
+    padding: 10px 20px;
+    background-color: #313D29;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.open-modal-btn:hover {
+    background-color: #2a3423;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.reset-btn {
+    padding: 10px 20px;
+    background-color: #FF4B4B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.reset-btn:hover {
+    background-color: #e64343;
+}
+
+.subcategory-list {
+    display: none; /* Subcategorieën zijn standaard verborgen */
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.toggle-subcategories {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #313D29;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.toggle-subcategories:hover {
+    background-color: #2a3423;
+}
+
 @media screen and (min-width: 768px) {
+    .vacancies {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .open-modal-btn {
+        width: 70vw;
+        height: 5vh;
+        font-size: 1.5rem;
+    }
+
     .vacancy-card {
         width: 70vw; /* Zorg dat alle categorieën dezelfde breedte hebben */
     }
@@ -800,4 +941,87 @@ font-size: 2rem;
     .apply-btn {
         font-size: 20px;
     }
+}
+/* Requirements Mobile*/
+
+.clarification {
+    font-family: "Kantumruy Pro", sans-serif;
+}
+
+.information {
+    font-size: 1.2rem;
+}
+
+.checkbox-item {
+    margin-bottom: 1vh;
+}
+
+.button {
+    width: 90vw;
+    margin-left: 1vw;
+}
+
+.button button {
+    padding-right: 25vw;
+    background-color: #AA0160;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    width: 95vw;
+    height: 8vh;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 2.8px 5.6px 5.6px hsl(0deg 0% 0% / 0.35);
+}
+
+@media screen and (min-width: 768px) {
+    .clarification {
+        padding-left: 38vw;
+    }
+
+    .information {
+        text-align: center;
+    }
+
+    .checkbox-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .checkbox-item {
+        padding-left: 38vw;
+        margin-top: 2vh;
+    }
+
+    .button button {
+        width: 70vw;
+        padding-right: 31.5vw;
+        margin-top: 5vh;
+    }
+}
+
+/* Contact Pagina*/
+
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    text-align: center;
+    gap: 1vh;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1vh;
+    gap: 1vh;
+}
+
+
+
+@media screen and (min-width: 768px) {
+
 }
