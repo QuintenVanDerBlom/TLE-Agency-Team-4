@@ -3,7 +3,7 @@
 
     <section id="lp-maincontent">
         <div id="lp-button-div">
-            <a href="{{ route('categories.index') }}" id="lp-button">Bekijk Vacatures</a>
+            <a href="{{ route('categories.index') }}" id="lp-button" aria-label="Bekijk vacatures">Bekijk Vacatures</a>
         </div>
         <h1>Werk voor iedereen!</h1>
         <div class="lp-container">
@@ -18,4 +18,25 @@
             </div>
         </div>
     </section>
+
+    <section id="random-job-postings">
+        <h2> Vacatures</h2>
+        <ul>
+            @foreach($randomJobListings as $job)
+                <li>
+                    <h3> Baan titel:{{ $job->name }}</h3>
+                    <p> Salaris:€{{ $job->salary }},-</p>
+                    <p>Uren: {{ $job->hours }}</p>
+                    <a href="{{ route('joblistings.show', $job->id) }}">Meer Details</a>
+
+                </li>
+            @endforeach
+        </ul>
+    </section>
+    <h2>Voor meerdere vacatures kan je op de knop drukken</h2>
+    <div id="lp-button-div">
+        <a href="{{ route('joblistings.index') }}" id="lp-button" aria-label="Bekijk alle vacatures">Bekijk Alle Vacatures</a>
+    </div>
+
+
 </x-layout>

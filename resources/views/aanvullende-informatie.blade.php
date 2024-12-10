@@ -1,4 +1,10 @@
 <x-layout>
+    <div id="stap2" class="header-container">
+        <a href="javascript:history.back()" class="back-button">
+            <img src="{{ asset('/images/backarrow.png') }}" alt="back-button">
+        </a>
+        <h1 class="centered-text">Categorie</h1>
+    </div>
     <h3 class="title">
         Stap 3: Geef wat extra informatie over jezelf</h3>
 
@@ -11,8 +17,14 @@
     <p class="information">
     Heb je een beperking die een werkgever in de gaten moet houden? (Meerdere antwoorden mogelijk)</p>
 
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <section class="checkbox-container">
-    <form action= "{{route('aanvullende-informatie')}}" method="POST">
+    <form action= "{{route('filter-vacatures')}}" method="POST">
     @csrf
     <section class="checkbox-item">
     <input type="checkbox" id="visuele-beperking" name="keuze[]" value="Visuele beperking">
@@ -75,8 +87,9 @@
     </section>
 
         <section class="button">
-            <input type="submit" value="Vacatures bekijken">
+            <button type="submit" class="job-action">Vacatures bekijken</button>
         </section>
+
     </form>
     </section>
 </x-layout>
