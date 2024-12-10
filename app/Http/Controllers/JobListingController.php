@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\JobListing;
 use App\Models\JobListingCategory;
-use App\Models\JobListingsCategory;
+use App\Models\Requirement;
 use Illuminate\Http\Request;
 
 class JobListingController extends Controller
@@ -12,19 +13,17 @@ class JobListingController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request, JobListingCategory $jobListingCategory)
+    public function index(Request $request)
     {
-        $queryString = request()->query();
-//        echo $queryString['id'];
+        $categoryIds = $request->input('category_ids', []);
+        $requirementIds = $request->input('requirement_ids', []);
 
-        $jobListings = JobListing::where('job_listing_category_id', $queryString['id'])->get();
-        //dd($jobListings);
-        // Fetch job listings associated with the given category ID
-     //  $jobListings = $jobListingCategory->jobListings;
-     //  $jobListings = JobListing::all();
+        $jobListings = JobListing::all();
+        $jobListingCategories = JobListingCategory::all();
+        $categories = Category::all();
+        $requirements = Requirement::all();
 
-        // Pass the job listings and the category to the view
-        return view('job_listing.index', compact('jobListings', 'jobListingCategory'));
+        return view('job_listing.index', compact('jobListings', 'categoryIds', 'categories', 'requirements', 'requirementIds'), compact('jobListingCategories'));
     }
 
 

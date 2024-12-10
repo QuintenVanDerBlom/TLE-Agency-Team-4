@@ -14,7 +14,6 @@ Route::resource('/joblistings', JobListingController::class);
 
 Route::get('joblistingcategories/{id}', [JobListingCategoryController::class, 'index'])->name('joblistingcategories.index');
 
-Route::get('/joblistings', [JobListingController::class, 'index'])->name('joblistings.index');
 Route::get('/joblistings/{id}', [JobListingController::class, 'show'])->name('joblistings.show');
 
 
