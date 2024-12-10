@@ -13,7 +13,7 @@
                 <a href="{{ url('joblistingcategories/' . $category->id) }}" class="job-block">
                     <div class = "category-div">
                     <div class="job-image">
-                        <img src="{{ asset('images/logos/' . $category->name . '.png') }}" alt="job image">
+                        <img src="{{ asset('images/logos/' . $category->image . '.png') }}" alt="job image">
                     </div>
                     <div class="job-content">
                         <h3>{{ $category->name }}</h3>
