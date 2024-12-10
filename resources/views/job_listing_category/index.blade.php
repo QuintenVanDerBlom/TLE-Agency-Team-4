@@ -9,7 +9,7 @@
 
         <div class="category-blocks">
             @forelse($jobListingsCategories as $jobListingCategory)
-                <a href="{{ route('joblistings.index', 'id='.$jobListingCategory->id) }}" class="job-block">
+                <a href="{{ route('aanvullende-informatie', 'id='.$jobListingCategory->id) }}" class="job-block">
                     <div class = "category-div">
                     <div class="job-image">
                         <img src="{{ asset('/images/happybusiness.jpg') }}" alt="job image">
