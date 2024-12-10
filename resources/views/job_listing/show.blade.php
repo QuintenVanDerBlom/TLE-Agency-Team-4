@@ -51,10 +51,8 @@
             <section>
                 <div>
                     @auth
-                        <!-- Als de gebruiker ingelogd is, laat de knop zien -->
                         <button class="button-bevestiging">Schrijf je in voor de vacature!</button>
                     @else
-                        <!-- Als de gebruiker niet ingelogd is, toon een link naar de login pagina -->
                         <a href="{{ route('login') }}" class="button-bevestiging">Log in om je in te schrijven!</a>
                     @endauth
                 </div>

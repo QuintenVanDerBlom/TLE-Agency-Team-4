@@ -16,7 +16,12 @@
         </div>
     </x-layout-nav>
     <div class="header-item"><a href = "{{route('index')}}"><img id="header-logo" src="{{ asset('/images/logos/logo.png') }}" alt="website logo"></a></div>
-    <div class="header-item"><img id="profile-picture" src="{{ asset('/images/pfp.png') }}" alt="profile picture"></div>
+    <div class="header-item">
+        <a href="{{ route('profile.edit') }}">
+            <img id="profile-picture" src="{{ asset('/images/pfp.png') }}" alt="profile picture">
+        </a>
+    </div>
+
 </header>
 {{ $slot }}
 
