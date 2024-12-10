@@ -8,9 +8,8 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\JobListingCategoryController;
 use App\Http\Controllers\JobListingController;
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+Route::get('/',[JobListingController::class,'homepage'])->name('index');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

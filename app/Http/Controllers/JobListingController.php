@@ -30,6 +30,12 @@ class JobListingController extends Controller
         // Geef de vacatures door aan de view
     }
 
+    public function homepage(){
+        $randomJobListings = JobListing::inRandomOrder()->limit(10)->get();
+
+        return view('index', compact('randomJobListings'));
+    }
+
 
     /**
      * Show the form for creating a new resource.
