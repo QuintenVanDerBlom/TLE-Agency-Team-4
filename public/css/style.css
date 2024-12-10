@@ -818,6 +818,7 @@ font-size: 2rem;
 }
 
 /* De achtergrond van de modal */
+/* Modal background */
 .modal {
     display: none;
     position: fixed;
@@ -826,86 +827,177 @@ font-size: 2rem;
     top: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.5);
     padding-top: 60px;
+    transition: opacity 0.3s ease;
+    overflow-y: auto;
 }
 
+/* Modal content box */
 .modal-content {
-    background-color: #fefefe;
+    background-color: #fff;
     margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
+    padding: 30px;
+    border-radius: 15px;
     width: 80%;
-    max-width: 500px;
-    border-radius: 10px;
+    max-width: 600px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    transform: translateY(-70px); /* Start from above */
 }
 
+/* Close button */
 .close {
     color: #aaa;
-    float: right;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: bold;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: #333;
     text-decoration: none;
     cursor: pointer;
 }
 
+/* Open modal button */
 .open-modal-btn {
-    padding: 10px 20px;
+    padding: 12px 25px;
     background-color: #313D29;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
 .open-modal-btn:hover {
     background-color: #2a3423;
 }
 
+/* Form styling */
 form {
     display: flex;
     flex-direction: column;
+    gap: 15px;
 }
 
+/* Button for Reset */
 .reset-btn {
-    padding: 10px 20px;
+    padding: 12px 25px;
     background-color: #FF4B4B;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 10px;
 }
 
 .reset-btn:hover {
     background-color: #e64343;
 }
 
+/* Category items and checkboxes */
+.category-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.category-item p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
 .subcategory-list {
-    display: none; /* Subcategorieën zijn standaard verborgen */
+    display: none; /* Subcategories are hidden by default */
     margin-top: 10px;
     padding-left: 20px;
+    font-size: 14px;
+}
+
+.subcategory-list label {
+    display: block;
+    padding: 5px 0;
+}
+
+.subcategory-list input {
+    margin-left: 10px;
 }
 
 .toggle-subcategories {
     margin-top: 10px;
-    padding: 5px 10px;
+    padding: 8px 15px;
     background-color: #313D29;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
 }
 
 .toggle-subcategories:hover {
     background-color: #2a3423;
+}
+
+/* "Toepassen" button (Apply button) */
+button[type="submit"] {
+    padding: 12px 25px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.toggle-requirements {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #313D29;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+/* Responsiveness */
+@media screen and (min-width: 768px) {
+    .modal-content {
+        width: 90%;
+        padding: 20px;
+        transform: translateY(-150px); /* Start from above */
+    }
+
+    .category-item p {
+        font-size: 16px;
+    }
+
+    .subcategory-list {
+        font-size: 12px;
+    }
+
+    .reset-btn,
+    .toggle-subcategories,
+    button[type="submit"] {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
 }
 
 @media screen and (min-width: 768px) {
@@ -1019,8 +1111,6 @@ form {
     margin-top: 1vh;
     gap: 1vh;
 }
-
-
 
 @media screen and (min-width: 768px) {
 

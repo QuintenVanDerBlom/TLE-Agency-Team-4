@@ -1,4 +1,5 @@
 <x-guest-layout>
+    <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
