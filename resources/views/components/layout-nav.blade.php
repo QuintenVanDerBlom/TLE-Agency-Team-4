@@ -5,6 +5,7 @@
     <a href = "{{ route('categories.index') }}" class = "navText">Vacatures</a>
     <a href = "#" class = "navText">Mijn inschrijvingen</a>
     <a href = "#" class = "navText">Contact</a>
+    <a href = "{{ route('dashboard') }}" class = "navText">Log in</a>
 </nav>
 <span onclick="openNav()">{{$slot}}</span>
 <script>

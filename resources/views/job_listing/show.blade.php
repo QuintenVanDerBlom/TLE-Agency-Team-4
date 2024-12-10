@@ -48,10 +48,20 @@
                 <li>Hier kun je ook je plaats op de wachtlijst zien</li>
                <li> Bij acceptatie ontvang je een e-mail om de baan officieel te accepteren.</li>
         </div>
-    <button class = "button-bevestiging">Schrijf je in voor de vacature!</button>
-    </section>
+            <section>
+                <div>
+                    @auth
+                        <!-- Als de gebruiker ingelogd is, laat de knop zien -->
+                        <button class="button-bevestiging">Schrijf je in voor de vacature!</button>
+                    @else
+                        <!-- Als de gebruiker niet ingelogd is, toon een link naar de login pagina -->
+                        <a href="{{ route('login') }}" class="button-bevestiging">Log in om je in te schrijven!</a>
+                    @endauth
+                </div>
+            </section>
 
-    <script>
+
+            <script>
         document.addEventListener('DOMContentLoaded', function () {
             console.log("Map script is running");
 
