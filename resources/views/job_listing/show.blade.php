@@ -48,7 +48,15 @@
                 <li>Hier kun je ook je plaats op de wachtlijst zien</li>
                <li> Bij acceptatie ontvang je een e-mail om de baan officieel te accepteren.</li>
         </div>
-    <button class = "button-bevestiging">Schrijf je in voor de vacature!</button>
+        </div>
+        <form action="{{ route('jobapplication.store', ['job_id' => $jobListing->id]) }}" method="POST">
+            @csrf
+            <input type="hidden" name="job_id" value="{{ $jobListing->id }}">
+            <button type="submit">Schrijf je in voor de vacature</button>
+        </form>
+
+
+
     </section>
 
     <script>
