@@ -193,6 +193,13 @@
         </div>
         <button class="open-modal-btn" id="openModalBtn">Filter</button>
 
+        <!-- Searchbar -->
+            <form action="{{ route('joblistings.index') }}" method="GET">
+                <input type="text" name="search" placeholder="Search">
+                <button type="submit">Search</button>
+            </form>
+
+
         <!-- De Modal -->
         <div id="myModal" class="modal">
             <div class="modal-content">

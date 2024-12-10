@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Company;
 use App\Models\JobListing;
 use App\Models\JobListingCategory;
 use App\Models\Requirement;
@@ -18,10 +19,22 @@ class JobListingController extends Controller
         $categoryIds = $request->input('category_ids', []);
         $requirementIds = $request->input('requirement_ids', []);
 
-        $jobListings = JobListing::all();
+//        $jobListings = JobListing::all();
         $jobListingCategories = JobListingCategory::all();
         $categories = Category::all();
         $requirements = Requirement::all();
+        $companyId = $request->get('company');
+
+        $search = $request->input('search');
+        $jobListings = JobListing::with('company') // Laadt de gekoppelde company data
+        ->when($search, function ($query) use ($search) {
+            $query->whereHas('company', function ($query) use ($search) {
+                $query->where('name', 'like', '%' . $search . '%');
+            });
+        })
+            ->get();
+
+
         // Verkrijg de querystring waarde van 'id' (bijv. ?id=1)
 
         return view('job_listing.index', compact('jobListings', 'categoryIds', 'categories', 'requirements', 'requirementIds'), compact('jobListingCategories'));
