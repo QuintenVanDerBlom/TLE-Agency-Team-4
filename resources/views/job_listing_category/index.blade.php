@@ -9,7 +9,7 @@
 
         <div class="category-blocks">
             @forelse($jobListingsCategories as $jobListingCategory)
-                <a href="{{ route('joblistings.index') }}"
+                <a href="{{ route('requirement.index') }}"
                    class="job-block"
                    onclick="storeCategoryId(event, {{ $jobListingCategory->id }})"
                 >
@@ -21,15 +21,6 @@
                             <h3>{{ $jobListingCategory->name }}</h3>
                             <p>{{ $jobListingCategory->information }}</p>
                         </div>
-                <a href="{{ route('aanvullende-informatie', 'id='.$jobListingCategory->id) }}" class="job-block">
-                    <div class = "category-div">
-                    <div class="job-image">
-                        <img src="{{ asset('/images/happybusiness.jpg') }}" alt="job image">
-                    </div>
-                    <div class="job-content">
-                        <h3>{{ $jobListingCategory->name }}</h3>
-                        <p>{{ $jobListingCategory->information }}</p>
-                    </div>
                     </div>
                     <div class="job-action">
                         <button>Bekijk vacatures</button>
@@ -43,27 +34,32 @@
 </x-layout>
 
 <script>
-    // Functie om de geselecteerde categorie op te slaan in localStorage en ook in de URL door te geven
     function storeCategoryId(event, categoryId) {
-        event.preventDefault(); // Voorkom dat de link direct navigeert
+        event.preventDefault(); // Voorkom directe navigatie
 
-        // Verkrijg de opgeslagen geselecteerde categorieën uit localStorage (indien aanwezig)
+        // Haal geselecteerde categorieën uit localStorage
         let selectedCategories = JSON.parse(localStorage.getItem('selectedCategoryIds')) || [];
 
-        // Voeg de nieuwe geselecteerde categorie toe aan de array (indien nog niet aanwezig)
+        // Voeg de nieuwe categorie toe, als deze nog niet bestaat
         if (!selectedCategories.includes(categoryId)) {
             selectedCategories.push(categoryId);
         }
 
-        // Sla de bijgewerkte array van geselecteerde categorieën op in localStorage
+        // Sla de bijgewerkte lijst op in localStorage
         localStorage.setItem('selectedCategoryIds', JSON.stringify(selectedCategories));
-        console.log(`Categorie IDs opgeslagen in localStorage: ${selectedCategories}`);
 
-        // Navigeer daarna naar de joblistings pagina met de category_ids in de URL
+        // Verkrijg de huidige URL-parameters
         const link = event.currentTarget;
         const params = new URLSearchParams(window.location.search);
-        selectedCategories.forEach(id => params.append('category_ids[]', id));  // Voeg elke categorie toe aan de URL
 
-        window.location.href = link.href + '?' + params.toString();  // Voeg de querystring toe aan de URL
+        // Voeg category_ids toe aan de URL
+        selectedCategories.forEach(id => params.append('category_ids[]', id));
+
+        // Haal ook de requirement_ids op uit localStorage en voeg ze toe aan de URL (indien aanwezig)
+        let selectedRequirements = JSON.parse(localStorage.getItem('selectedRequirementIds')) || [];
+        selectedRequirements.forEach(id => params.append('requirement_ids[]', id));
+
+        // Navigeer naar de nieuwe URL
+        window.location.href = link.href + '?' + params.toString();
     }
 </script>

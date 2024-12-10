@@ -14,32 +14,34 @@ class RequirementController extends Controller
     public function index(Request $request)
     {
         // Haal beperkingen van form
-        $names = $request->input('keuze',[]);  // Een array van opties
+       // $names = $request->input('keuze',[]);  // Een array van opties
+        $categoryIds = $request->input('category_ids', []);
+        $requirements = Requirement::all();
 
-
+        return view('requirement.index', compact('categoryIds', 'requirements'));
         // naar nieuwe pagina met resultaten
-        return redirect()->route('vacatures',['names' => $names]);
+       // return redirect()->route('vacatures',['names' => $names]);
     }
-    public
-    function showFilteredJobs(Request $request)
-    {
-        // Get the selected disabilities from query parameters
-        $names = $request->query('names', []);
-
-        // Query the jobs with requirements matching the selected disabilities
-        if (!empty($names)) {
-            $joblistings = JobListing::whereHas('requirements', function ($query) use ($names) {
-                $query->whereIn('name', $names);
-            })->get();
-
-        } else {
-            $joblistings = JobListing::all(); // Show all jobs if no filters are selected
-        }
-
-
-        // return gefilterde vacatures in view
-        return view('job_listing.show', compact('joblistings'));
-    }
+//    public
+//    function showFilteredJobs(Request $request)
+//    {
+//        // Get the selected disabilities from query parameters
+//        $names = $request->query('names', []);
+//
+//        // Query the jobs with requirements matching the selected disabilities
+//        if (!empty($names)) {
+//            $joblistings = JobListing::whereHas('requirements', function ($query) use ($names) {
+//                $query->whereIn('name', $names);
+//            })->get();
+//
+//        } else {
+//            $joblistings = JobListing::all(); // Show all jobs if no filters are selected
+//        }
+//
+//
+//        // return gefilterde vacatures in view
+//        return view('job_listing.show', compact('joblistings'));
+//    }
 
     /**
      * Show the form for creating a new resource.

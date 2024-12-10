@@ -23,19 +23,11 @@ class JobListingController extends Controller
         $categories = Category::all();
         $requirements = Requirement::all();
         // Verkrijg de querystring waarde van 'id' (bijv. ?id=1)
-        $categoryId = $request->query('id');
 
         return view('job_listing.index', compact('jobListings', 'categoryIds', 'categories', 'requirements', 'requirementIds'), compact('jobListingCategories'));
         // Als er een id is, filter dan de vacatures op basis van de job listing category ID
-        if ($categoryId) {
-            $jobListings = JobListing::where('job_listing_category_id', $categoryId)->get();
-        } else {
-            // Haal anders alle vacatures op
-            $jobListings = JobListing::all();
-        }
 
         // Geef de vacatures door aan de view
-        return view('job_listing.index', compact('jobListings'));
     }
 
 
