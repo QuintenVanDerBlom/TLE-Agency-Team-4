@@ -23,10 +23,24 @@
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
+        <!-- Date of Birth -->
+        <div>
+            <x-input-label for="dob" :value="__('Date of Birth')" />
+            <x-text-input id="dob" name="dob" type="date" class="mt-1 block w-full" :value="old('dob', $user->dob)" required />
+            <x-input-error class="mt-2" :messages="$errors->get('dob')" />
+        </div>
+
         <div>
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
+
+            <!-- Phone Number -->
+            <div>
+                <x-input-label for="phone" :value="__('Phone Number')" />
+                <x-text-input id="phone" name="phone" type="text" class="mt-1 block w-full" :value="old('phone', $user->phone)" required autocomplete="tel" />
+                <x-input-error class="mt-2" :messages="$errors->get('phone')" />
+            </div>
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
                 <div>

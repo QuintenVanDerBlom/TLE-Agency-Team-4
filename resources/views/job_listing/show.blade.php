@@ -55,8 +55,6 @@
             <button type="submit">Schrijf je in voor de vacature</button>
         </form>
 
-
-
     </section>
 
     <script>

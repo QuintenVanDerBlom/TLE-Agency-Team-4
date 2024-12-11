@@ -5,6 +5,19 @@
     <a href = "{{ route('categories.index') }}" class = "navText">Vacatures</a>
     <a href = "{{ route('jobapplication.index') }}" class = "navText">Mijn inschrijvingen</a>
     <a href = "#" class = "navText">Contact</a>
+    <div>
+        @auth
+            <!-- Formulier voor uitloggen -->
+            <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+                @csrf
+                <button type="submit" class="button-bevestiging">Log out</button>
+            </form>
+        @else
+            <a href="{{ route('login') }}" class="navText">Log in</a>
+        @endauth
+    </div>
+
+
 </nav>
 <span onclick="openNav()">{{$slot}}</span>
 <style>
