@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RequirementController;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,7 @@ Route::get('/contact', function () {
 Route::resource('/categories',CategoryController::class);
 Route::resource('/joblistings', JobListingController::class);
 Route::resource('/requirement', RequirementController::class);
+Route::resource('/jobapplication', JobApplicationController::class)->middleware('auth');
 
 
 Route::get('joblistingcategories/{id}', [JobListingCategoryController::class, 'index'])->name('joblistingcategories.index');
