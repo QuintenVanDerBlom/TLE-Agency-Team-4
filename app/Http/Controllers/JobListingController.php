@@ -23,7 +23,7 @@ class JobListingController extends Controller
         $jobListingCategories = JobListingCategory::all();
         $categories = Category::all();
         $requirements = Requirement::all();
-        $companyId = $request->get('company');
+
 
         $search = $request->input('search');
         $jobListings = JobListing::with('company') // Laadt de gekoppelde company data

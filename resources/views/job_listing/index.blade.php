@@ -186,7 +186,7 @@
 
     <div class="cat-container">
         <div id="stap2" class="header-container">
-            <a href="javascript:history.back()" class="back-button">
+            <a href="{{ route('requirement.index') }}" class="back-button">
                 <img src="{{ asset('/images/backarrow.png') }}" alt="back-button">
             </a>
             <h1 class="centered-text">Vacatures</h1>
@@ -195,6 +195,7 @@
 
         <!-- Searchbar -->
             <form action="{{ route('joblistings.index') }}" method="GET">
+                <label for="search" class="text-gray-800 font semibold"></label>
                 <input type="text" name="search" placeholder="Search">
                 <button type="submit">Search</button>
             </form>
