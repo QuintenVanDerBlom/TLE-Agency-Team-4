@@ -13,8 +13,6 @@
                 overflow: hidden;
                 background-color: #fff;
                 box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
-                transition: all 0.3s ease-in-out;
-                margin-top: 2rem;
             }
 
             .toggle-card {
@@ -57,7 +55,7 @@
             }
 
             .remove-btn {
-                background-color: #FF4B4B;
+                background-color: red;
                 color: white;
                 border: none;
                 border-radius: 0.5rem;
@@ -66,9 +64,9 @@
                 cursor: pointer;
                 transition: background-color 0.3s ease;
             }
+            button[type="submit"] {
+                background-color: red;
 
-            .remove-btn:hover {
-                background-color: #e64343;
             }
 
 
@@ -76,9 +74,6 @@
 
     <div class="cat-container">
         <div id="stap2" class="header-container">
-            <a href="javascript:history.back()" class="back-button">
-                <img src="{{ asset('/images/backarrow.png') }}" alt="back-button">
-            </a>
             <h1 class="centered-text">Mijn inschrijvingen</h1>
         </div>
 

@@ -1,9 +1,10 @@
 <x-layout>
+<div class="cat-container">
+    <h1>Login</h1>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
     <form class="login-form" method="POST" action="{{ route('login') }}">
         @csrf
-
         <!-- Email Address -->
         <div class="form-group">
             <x-input-label for="email" :value="__('Email')" />
@@ -48,4 +49,5 @@
             </p>
         </div>
     </form>
+</div>
 </x-layout>

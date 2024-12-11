@@ -1,7 +1,7 @@
 <x-layout>
     <div class="cat-container">
         <div id="stap2" class="header-container">
-            <a href="javascript:history.back()" class="back-button">
+            <a href="{{ route('index') }}" class="back-button">
                 <img src="{{ asset('/images/backarrow.png') }}" alt="back-button">
             </a>
             <h1 class="centered-text">Sectoren</h1>

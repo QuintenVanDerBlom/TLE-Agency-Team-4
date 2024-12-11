@@ -6,6 +6,7 @@ use App\Models\JobListing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
 class JobApplicationController extends Controller
 {
     /**
@@ -48,7 +49,7 @@ class JobApplicationController extends Controller
         // Controleer of de gebruiker al is ingeschreven voor de vacature
         if ($user->jobListings()->where('vacature_id', $id)->exists()) {
             // Als de gebruiker al is ingeschreven, stuur een foutmelding
-            return redirect()->back()->withErrors('Je bent al ingeschreven voor deze vacature!');
+            return redirect()->route('jobapplication.index')->with('success', 'Je bent al ingeschreven voor de vacature!');
         }
 
         // Voeg de joblisting toe aan de user via de pivot tabel

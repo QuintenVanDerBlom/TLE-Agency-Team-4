@@ -2,8 +2,9 @@
     <img id="banner-image" src="{{ asset("/images/banner.png") }}" alt="banner image">
 
     <section id="lp-maincontent">
-        <div id="lp-button-div">
-            <a href="{{ route('categories.index') }}" id="lp-button" class = "homepage-button" aria-label="Bekijk vacatures">Vind de juiste vacature voor jou!</a>
+        <h2 class="homepage-h2">Vind de juiste vacature voor jou!</h2>
+         <div id="lp-button-div">
+            <a href="{{ route('categories.index') }}" id="lp-button" class = "homepage-button" aria-label="Bekijk vacatures">Begin aan de stappen!</a>
         </div>
         <h1>Werk voor iedereen!</h1>
         <div class="lp-container">

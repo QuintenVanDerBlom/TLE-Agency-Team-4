@@ -1,26 +1,27 @@
 <x-layout>
     <div class="cat-container">
         <div id="stap2" class="header-container">
-            <a href="{{ route('index') }}" class="back-button">
+            <a href="{{ route('categories.index') }}" class="back-button">
                 <img src="{{ asset('/images/backarrow.png') }}" alt="back-button">
             </a>
-            <h1 class="centered-text">Categorie</h1>
+            <h1 class="centered-text">Aanvullende informatie</h1>
         </div>
-        <h3 class="title">
-            Stap 3: Geef wat extra informatie over jezelf
-        </h3>
 
         <p class="clarification">
-            Deze informatie is alleen bedoeld zodat we de vacatures voor jou kunnen filteren.
+            Deze informatie is alleen bedoeld zodat we de vacatures voor u nog beter kunnen filteren.
         </p>
 
         <hr class="seperation" />
 
         <p class="information">
-            Heb je een beperking die een werkgever in de gaten moet houden? (Meerdere antwoorden mogelijk)
+            Heeft u een beperking waar een werkgever rekening mee moet houden?
+        </p>
+        <p class="clarification">
+            (Meerdere antwoorden mogelijk)
         </p>
 
-        @if (session('success'))
+
+    @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>

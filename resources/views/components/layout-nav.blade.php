@@ -8,9 +8,9 @@
     <div>
         @auth
             <!-- Formulier voor uitloggen -->
-            <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+            <form method="POST" action="{{ route('logout') }}" class="navText">
                 @csrf
-                <button type="submit" class="button-bevestiging">Log out</button>
+                <button type="submit" class="navText">Log out</button>
             </form>
         @else
             <a href="{{ route('login') }}" class="navText">Log in</a>
