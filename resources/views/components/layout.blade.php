@@ -28,14 +28,10 @@
 
 <footer id="main-footer">
     <div>
-
-        <p>☎: (+31)06-12345678</p>
-        <p>✉: Openhiring@oh.nl</p>
-        <p>📍: Klokgebouw 188, 7de etage.</p>
-
+        <a href="{{ route('contact') }}">Contact Pagina</a>
     </div>
     <div>
-        <img id="header-logo" src="{{ asset('/images/logos/logo.png') }}" alt="website logo">
+        <img id="footer-logo" src="{{ asset('/images/logos/logo.png') }}" alt="website logo">
     </div>
 </footer>
 </body>

@@ -1,189 +1,4 @@
 <x-layout>
-    <style>
-        .vacancies {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .vacancy-card {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border: 1px solid #dcdcdc;
-            border-radius: 10px;
-            padding: 15px;
-            background-color: #fafafa;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 90vw;
-        }
-
-        .vacancy-card-content {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .vacancy-card img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .vacancy-card-link {
-            flex: 1;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .vacancy-card h2 {
-            margin: 0;
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .vacancy-card p {
-            margin: 5px 0;
-            font-size: 14px;
-            color: #555;
-        }
-
-        .apply-btn-link {
-            margin-top: 15px;
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .apply-btn {
-            padding: 10px 20px;
-            background-color: #313D29;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            width: 100%;
-            text-align: center;
-        }
-
-        .apply-btn:hover {
-            background-color: #2a3423;
-        }
-
-        .header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .back-arrow {
-            width: 30px;
-            height: 30px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .back-arrow:hover {
-            transform: scale(1.1);
-        }
-
-        /* De achtergrond van de modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: rgba(0, 0, 0, 0.4);
-            padding-top: 60px;
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 500px;
-            border-radius: 10px;
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .open-modal-btn {
-            padding: 10px 20px;
-            background-color: #313D29;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .open-modal-btn:hover {
-            background-color: #2a3423;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .reset-btn {
-            padding: 10px 20px;
-            background-color: #FF4B4B;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-top: 10px;
-        }
-
-        .reset-btn:hover {
-            background-color: #e64343;
-        }
-
-        .subcategory-list {
-            display: none; /* Subcategorieën zijn standaard verborgen */
-            margin-top: 10px;
-            padding-left: 20px;
-        }
-
-        .toggle-subcategories {
-            margin-top: 10px;
-            padding: 5px 10px;
-            background-color: #313D29;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .toggle-subcategories:hover {
-            background-color: #2a3423;
-        }
-    </style>
-
     <div class="cat-container">
         <div id="stap2" class="header-container">
             <a href="javascript:history.back()" class="back-button">
@@ -328,24 +143,27 @@
         </script>
 
         <div class="vacancies">
-            <h3>Gekozen filters</h3>
-            @foreach($categories as $category)
-                @foreach($category->jobListingCategories as $subCategory)
-                    @if(in_array($subCategory->id, $categoryIds))
+            <div class="filters">
+            <p>Gekozen filters: </p>
+                @foreach($categories as $category)
+                    @foreach($category->jobListingCategories as $subCategory)
+                        @if(in_array($subCategory->id, $categoryIds))
+                            <!-- Toon de geselecteerde subcategorieën -->
+                            <p>{{ $subCategory->name }}</p>
+                        @endif
+                    @endforeach
+              @endforeach
+                @foreach($requirements as $requirement)
+                    @if(in_array($requirement->id, $requirementIds))
                         <!-- Toon de geselecteerde subcategorieën -->
-                        <p>{{ $subCategory->name }}</p>
+                        <p>{{ $requirement->name }}</p>
                     @endif
-                @endforeach
-            @endforeach
-            @foreach($requirements as $requirement)
-                @if(in_array($requirement->id, $requirementIds))
-                    <!-- Toon de geselecteerde subcategorieën -->
-                    <p>{{ $requirement->name }}</p>
-                @endif
-            @endforeach
-            @forelse($jobListings as $job)
-                @if(in_array($job->job_listing_category_id, $categoryIds) || empty($categoryIds))
-                    @if(in_array($job->job_listing_requirement_id, $requirementIds) || empty($requirementIds))
+              @endforeach
+            </div>
+                @forelse($jobListings as $job)
+                    @if(in_array($job->job_listing_category_id, $categoryIds) || empty($categoryIds))
+                        @if(in_array($job->job_listing_requirement_id, $requirementIds) || empty($requirementIds))
+
                         <div class="vacancy-card">
                             <div class="vacancy-card-content">
                                 <img src="{{ asset('/images/bedrijf/bedrijf.png') }}" alt="Vacature afbeelding">
