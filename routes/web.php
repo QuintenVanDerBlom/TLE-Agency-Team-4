@@ -24,6 +24,10 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+Route::get('/contact', function () {
+    return view('contact-us');
+})->name('contact');
+
 Route::resource('/categories',CategoryController::class);
 Route::resource('/joblistings', JobListingController::class);
 Route::resource('/requirement', RequirementController::class);
