@@ -48,18 +48,18 @@
                 <li>Hier kun je ook je plaats op de wachtlijst zien</li>
                <li> Bij acceptatie ontvang je een e-mail om de baan officieel te accepteren.</li>
         </div>
-            <section>
-                <div>
-                    @auth
-                        <button class="button-bevestiging">Schrijf je in voor de vacature!</button>
-                    @else
-                        <a href="{{ route('login') }}" class="button-bevestiging">Log in om je in te schrijven!</a>
-                    @endauth
-                </div>
-            </section>
+        </div>
+        <form action="{{ route('jobapplication.store', ['job_id' => $jobListing->id]) }}" method="POST">
+            @csrf
+            <input type="hidden" name="job_id" value="{{ $jobListing->id }}">
+            <button type="submit">Schrijf je in voor de vacature</button>
+        </form>
 
 
-            <script>
+
+    </section>
+
+    <script>
         document.addEventListener('DOMContentLoaded', function () {
             console.log("Map script is running");
 

@@ -3,7 +3,7 @@
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href = "{{ route('index') }}" class = "navText">Home</a>
     <a href = "{{ route('categories.index') }}" class = "navText">Vacatures</a>
-    <a href = "#" class = "navText">Mijn inschrijvingen</a>
+    <a href = "{{ route('jobapplication.index') }}" class = "navText">Mijn inschrijvingen</a>
     <a href = "#" class = "navText">Contact</a>
     <div>
         @auth
