@@ -11,14 +11,6 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("You're logged in!!") }}
                 </div>
-                <!-- Back Button -->
-                <div class="mt-4">
-                    <button
-                        onclick="history.back()"
-                        class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none">
-                        Go Back
-                    </button>
-                </div>
             </div>
         </div>
     </div>
