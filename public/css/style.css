@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
+
 html, body {
     margin-bottom: 30vw; /* Remove default margin */
     font-family: "Kantumruy Pro", sans-serif;
 }
+
 .seperation {
     border: none; /* Remove the default border */
     border-top: 1px solid black; /* Add a solid black top border */
@@ -86,24 +88,29 @@ h1 {
     padding: 0 4rem;
 
 }
-h2{
+
+h2 {
     font-family: "Kantumruy Pro", sans-serif;
     font-size: 1.3rem;
     font-weight: normal;
     padding: 0.4rem;
 }
-h3{
+
+h3 {
     font-family: "Kantumruy Pro", sans-serif;
     font-size: 1rem;
     font-weight: normal;
     padding: 0.1rem;
 }
-p{
+
+p {
     font-size: 0.9rem;
 }
-li{
+
+li {
     font-size: 0.9rem;
 }
+
 /* The side navigation menu */
 .sideNav {
     height: 100%; /* 100% Full-height */
@@ -125,6 +132,7 @@ li{
     align-items: center;
 
 }
+
 .closebtn {
     position: absolute;
     top: 0;
@@ -134,7 +142,6 @@ li{
     text-decoration: none;
     color: white;
 }
-
 
 /* The navigation menu links */
 .navText {
@@ -154,13 +161,12 @@ li{
 
 /* Position and style the close button (top right corner) */
 
-
-
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
 }
+
 * {
     padding: 0;
     margin: 0;
@@ -183,7 +189,6 @@ li{
     justify-content: center;
 }
 
-
 #hamburger-menu-button {
 font-size: 2rem;
     background-color: transparent;
@@ -194,7 +199,6 @@ font-size: 2rem;
 #header-logo {
     width: 20vw;
     height: auto;
-
 }
 
 #profile-picture {
@@ -220,6 +224,21 @@ font-size: 2rem;
     bottom: 0;
     color: white;
 }
+
+#main-footer a {
+    text-decoration: none;
+    color: white;
+}
+
+#main-footer a:hover {
+    color: #AA0160;
+}
+
+#footer-logo {
+    width: 20vw;
+    height: 10vh;
+}
+
 .line {
     height: 2px; /* Dikte van de lijn */
     background-color: black; /* Kleur van de lijn */
@@ -227,6 +246,32 @@ font-size: 2rem;
     margin: 20px 0; /* Ruimte erboven en eronder */
 }
 
+@media screen and (min-width: 768px) {
+    #header-logo {
+        width: 5vw;
+        height: 10vh;
+    }
+
+    #profile-picture {
+        width: 3vw;
+        height: 5.5vh;
+    }
+
+    #banner-image {
+        height: 60vh;
+    }
+
+    #main-footer {
+        height: 8vh;
+    }
+
+    #footer-logo {
+        height: 6.5vh;
+        width: 3.2vw;
+    }
+}
+
+/* Start of Home Page Mobile Styling*/
 
 #lp-maincontent {
     display: flex;
@@ -339,6 +384,50 @@ font-size: 2rem;
     margin-right: 0.8rem;
 }
 
+#random-job-postings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2vh;
+    width: 95vw;
+    margin-left: 2.5vw;
+    margin-bottom: 1vh;
+    border-radius: 15px;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+    padding: 15px;
+}
+
+#random-job-postings li {
+    margin-bottom: 1vh;
+}
+
+/* End of Mobile styling*/
+
+@media screen and (min-width: 768px) {
+    .lp-container {
+        width: 70vw;
+        gap: 5vh;
+    }
+
+    #lp-button {
+        width: 70vw; /* Adjust button width on medium screens */
+        padding-top: 21px;
+    }
+
+    #random-job-postings {
+        width: 70vw;
+        margin-left: 15vw;
+    }
+
+    #random-job-postings h3, p, a {
+        font-size: 1.2rem;
+    }
+}
+
+/* End of Home Page*/
+
+/* Begin Category -> Category Detail -> Vacature Pagina */
+
 #stap2 {
     display: flex;
     font-family: "Kantumruy Pro", sans-serif;
@@ -435,6 +524,7 @@ font-size: 2rem;
 .job-action button:hover {
     background-color: #2c352c;
 }
+
 #cat-main {
     display: flex;
     flex-direction: column;
@@ -544,6 +634,61 @@ font-size: 2rem;
     flex-direction: column;
     align-items: center;
 }
+
+@media screen and (min-width: 768px) {
+    .category-blocks {
+        width: 70vw;
+    }
+
+    .job-image img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .job-content h3 {
+        font-size: 30px;
+    }
+
+    .job-content p {
+        font-size: 20px;
+    }
+
+    .job-action button {
+        font-size: 20px;
+    }
+
+    #cat-item {
+        width: 70vw;
+    }
+
+    .underline-box{
+        width: 70vw;
+    }
+
+    .underline-box li {
+        font-size: 1.2rem;
+    }
+
+    .button-bevestiging{
+        width:  70vw;
+        height: 5rem;
+        background-color: #AA0160;
+        color: white;
+        border-radius: 0.3rem;
+        border: none;
+        font-family: "Kantumruy Pro", sans-serif;
+        font-size: 1.5rem;
+        margin-top: 5vh;
+    }
+    .cat-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Begin Vacature Detail */
+
 /* De container */
 .header-container {
     display: flex;                  /* Gebruik flexbox */
@@ -583,6 +728,7 @@ font-size: 2rem;
     border: 1px solid #dcdcdc;
     border-radius: 10px;
     padding: 15px;
+    margin: 10px;
     background-color: #fafafa;
     box-shadow: 2.8px 5.6px 5.6px hsl(0deg 0% 0% / 0.35);
     width: 90vw; /* Zorg dat alle categorieën dezelfde breedte hebben */
@@ -658,4 +804,471 @@ font-size: 2rem;
 
 .back-arrow:hover {
     transform: scale(1.1); /* Vergroot de pijl een beetje als de gebruiker eroverheen hovert */
+}
+
+.filters {
+    max-width: 95vw;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+    padding: 10px;
+    border: #9ca3af 1px solid;
+    border-radius: 15px;
+}
+
+/* De achtergrond van de modal */
+/* Modal background */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 60px;
+    transition: opacity 0.3s ease;
+    overflow-y: auto;
+}
+
+/* Modal content box */
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 600px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    transform: translateY(-70px); /* Start from above */
+}
+
+/* Close button */
+.close {
+    color: #aaa;
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Open modal button */
+.open-modal-btn {
+    padding: 12px 25px;
+    background-color: #313D29;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.open-modal-btn:hover {
+    background-color: #2a3423;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Button for Reset */
+.reset-btn {
+    padding: 12px 25px;
+    background-color: #FF4B4B;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reset-btn:hover {
+    background-color: #e64343;
+}
+
+/* Category items and checkboxes */
+.category-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.category-item p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.subcategory-list {
+    display: none; /* Subcategories are hidden by default */
+    margin-top: 10px;
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+.subcategory-list label {
+    display: block;
+    padding: 5px 0;
+}
+
+.subcategory-list input {
+    margin-left: 10px;
+}
+
+.toggle-subcategories {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #313D29;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-subcategories:hover {
+    background-color: #2a3423;
+}
+
+/* "Toepassen" button (Apply button) */
+button[type="submit"] {
+    padding: 12px 25px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+}
+
+button[type="submit"]:hover {
+    background-color: #AA0130;
+}
+
+.toggle-requirements {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #313D29;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+/* Responsiveness */
+@media screen and (min-width: 768px) {
+    .modal-content {
+        width: 90%;
+        padding: 20px;
+        transform: translateY(-150px); /* Start from above */
+    }
+
+    .category-item p {
+        font-size: 16px;
+    }
+
+    .subcategory-list {
+        font-size: 12px;
+    }
+
+    .reset-btn,
+    .toggle-subcategories,
+    button[type="submit"] {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .vacancies {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .open-modal-btn {
+        width: 70vw;
+        height: 5vh;
+        font-size: 1.5rem;
+    }
+
+    .vacancy-card {
+        width: 70vw; /* Zorg dat alle categorieën dezelfde breedte hebben */
+    }
+
+    .vacancy-card img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .vacancy-card h2 {
+        font-size: 36px
+    }
+
+    .vacancy-card p {
+        font-size: 18px;
+    }
+
+    .apply-btn {
+        font-size: 20px;
+    }
+}
+/* Requirements Mobile*/
+
+.clarification {
+    font-family: "Kantumruy Pro", sans-serif;
+}
+
+.information {
+    font-size: 1.2rem;
+}
+
+.checkbox-item {
+    margin-bottom: 1vh;
+}
+
+.button {
+    width: 90vw;
+    margin-left: 1vw;
+}
+
+.button button {
+    padding-right: 25vw;
+    background-color: #AA0160;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    width: 95vw;
+    height: 8vh;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 2.8px 5.6px 5.6px hsl(0deg 0% 0% / 0.35);
+}
+
+@media screen and (min-width: 768px) {
+    .clarification {
+        padding-left: 38vw;
+    }
+
+    .information {
+        text-align: center;
+    }
+
+    .checkbox-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .checkbox-item {
+        padding-left: 38vw;
+        margin-top: 2vh;
+    }
+
+    .button button {
+        width: 70vw;
+        padding-right: 31.5vw;
+        margin-top: 5vh;
+    }
+}
+
+/* Contact Pagina*/
+
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    text-align: center;
+    gap: 1vh;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1vh;
+    gap: 1vh;
+}
+
+@media screen and (min-width: 768px) {
+
+}
+
+/* Login */
+/* General Layout */
+.login-form {
+    max-width: 400px;
+    margin: 10vh auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.input-field:focus {
+    border-color: #4f86e0;
+    outline: none;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Remember Me Section */
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox {
+    margin-right: 10px;
+}
+
+.remember-me-label {
+    font-size: 14px;
+}
+
+.remember-text {
+    font-size: 14px;
+}
+
+/* Footer */
+.form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.forgot-password {
+    font-size: 14px;
+    color: #4f86e0;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Button Styling */
+.login-button {
+    padding: 12px 20px;
+    background-color: #4f86e0;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: #365fa2;
+}
+
+/* Register Layout */
+.register-form {
+    max-width: 400px;
+    margin: 10vh auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.input-field:focus {
+    border-color: #4f86e0;
+    outline: none;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Footer */
+.form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.login-link {
+    font-size: 14px;
+    color: #4f86e0;
+    text-decoration: none;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+
+/* Button Styling */
+.register-button {
+    padding: 12px 20px;
+    background-color: #4f86e0;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.register-button:hover {
+    background-color: #365fa2;
 }
