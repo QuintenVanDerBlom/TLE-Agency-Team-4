@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
 
 html, body {
-    margin-bottom: 30vw; /* Remove default margin */
+    margin-bottom: 10vh; /* Remove default margin */
     font-family: "Kantumruy Pro", sans-serif;
 }
 
@@ -1271,4 +1271,7 @@ button[type="submit"]:hover {
 
 .register-button:hover {
     background-color: #365fa2;
+}
+.homepage-button{
+    font-size: 1rem;
 }

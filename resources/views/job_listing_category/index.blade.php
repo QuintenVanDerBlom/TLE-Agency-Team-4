@@ -4,8 +4,9 @@
             <a href="javascript:history.back()" class="back-button">
                 <img src="{{ asset('/images/backarrow.png') }}" alt="back-button">
             </a>
-            <h1 class="centered-text">Categorie</h1>
+            <h1 class="centered-text">Rollen</h1>
         </div>
+        <p>Kies een rol waarvan u vacatures wilt zien</p>
 
         <div class="category-blocks">
             @forelse($jobListingsCategories as $jobListingCategory)

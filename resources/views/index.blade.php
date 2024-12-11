@@ -3,7 +3,7 @@
 
     <section id="lp-maincontent">
         <div id="lp-button-div">
-            <a href="{{ route('categories.index') }}" id="lp-button" aria-label="Bekijk vacatures">Bekijk Vacatures</a>
+            <a href="{{ route('categories.index') }}" id="lp-button" class = "homepage-button" aria-label="Bekijk vacatures">Vind de juiste vacature voor jou!</a>
         </div>
         <h1>Werk voor iedereen!</h1>
         <div class="lp-container">
@@ -20,21 +20,29 @@
     </section>
 
     <section id="random-job-postings">
-        <h2> Vacatures</h2>
-        <ul>
+        <h1> Vacatures</h1>
             @foreach($randomJobListings as $job)
-                <li>
-                    <h3> Baan titel: {{ $job->name }}</h3>
-                    <p> Salaris: €{{ $job->salary }},-</p>
-                    <p>Uren: {{ $job->hours }}</p>
-                    <a href="{{ route('joblistings.show', $job->id) }}">Meer Details</a>
-                </li>
+                <div class="vacancy-card">
+                    <div class="vacancy-card-content">
+                        <img src="{{ asset('/images/bedrijf/bedrijf.png') }}" alt="Vacature afbeelding">
+                        <a href="{{ route('joblistings.show', ['id' => $job->id]) }}" class="vacancy-card-link">
+                            <h2>{{ $job->company->name }}</h2>
+                            <p><strong>Loon:</strong> €{{ number_format($job->salary, 2) }},- p.m.</p>
+                            <p><strong>Uren:</strong> {{ $job->hours }}</p>
+                            <p><strong>Locatie:</strong> {{ $job->company->location }}</p>
+                        </a>
+                    </div>
+                    <div class="apply-btn-link">
+                        <a href="{{ route('joblistings.show', ['id' => $job->id]) }}">
+                            <button class="apply-btn">Inschrijven</button>
+                        </a>
+                    </div>
+                </div>
             @endforeach
-        </ul>
-        <h3>Klik op de knop voor meerdere vacatures.</h3>
+        <h3>Klik op de knop voor alle vacatures.</h3>
     </section>
     <div id="lp-button-div">
-        <a href="{{ route('joblistings.index') }}" id="lp-button" aria-label="Bekijk alle vacatures">Bekijk Alle Vacatures</a>
+        <a href="{{ route('joblistings.index') }}" id="lp-button" aria-label="Bekijk alle vacatures">Bekijk alle vacatures</a>
     </div>
 
 

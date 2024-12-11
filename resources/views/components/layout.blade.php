@@ -26,13 +26,14 @@
 {{ $slot }}
 
 
+
+</body>
 <footer id="main-footer">
     <div>
-        <a href="{{ route('contact') }}">Contact Pagina</a>
+        <a href="{{ route('contact') }}">Contact</a>
     </div>
     <div>
         <img id="footer-logo" src="{{ asset('/images/logos/logo.png') }}" alt="website logo">
     </div>
 </footer>
-</body>
 </html>
