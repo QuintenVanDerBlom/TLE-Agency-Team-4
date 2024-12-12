@@ -130,7 +130,7 @@
                                     <h2>{{ $job->company->name }}</h2>
                                     <p><strong>Loon:</strong> €{{ number_format($job->salary, 2) }},- p.m.</p>
                                     <p><strong>Uren:</strong> {{ $job->hours }}</p>
-                                    <p><strong>Locatie:</strong> {{ $job->company->location }}</p>
+                                    <p><strong>Locatie:</strong> {{ $job->company->place }}</p>
                                 </a>
                             </div>
                             <div class="apply-btn-link">

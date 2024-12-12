@@ -53,7 +53,7 @@ class JobApplicationController extends Controller
         }
 
         // Voeg de joblisting toe aan de user via de pivot tabel
-        $user->jobListings()->attach($id);
+//        $user->jobListings()->attach($id);
 
         // Redirect naar de gewenste pagina (bijv. overzicht van inschrijvingen)
         return redirect()->route('jobapplication.index')->with('success', 'Je bent succesvol ingeschreven voor de vacature!');

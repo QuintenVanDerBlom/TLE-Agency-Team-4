@@ -3,6 +3,9 @@
         .back-button img{
             left: 0.5rem;
         }
+        h1{
+            font-size:1.7rem;
+        }
     </style>
     <div class="cat-container">
         <div id="stap2" class="header-container">
