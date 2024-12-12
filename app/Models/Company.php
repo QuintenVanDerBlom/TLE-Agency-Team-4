@@ -14,7 +14,7 @@ class Company extends Model
     /**
      * Relatie: Een bedrijf heeft meerdere vacatures
      */
-    public function jobListings()
+    public function jobListings(): HasMany
     {
         return $this->hasMany(JobListing::class);
     }
