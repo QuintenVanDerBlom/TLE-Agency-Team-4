@@ -1,7 +1,12 @@
 <x-layout>
+    <style>
+        .back-button img{
+            left: 0.5rem;
+        }
+    </style>
     <div class="cat-container">
         <div id="stap2" class="header-container">
-            <a href="{{ route('categories.index') }}" class="back-button">
+            <a href="javascript:void(0);" onclick="window.history.back();" class="back-button">
                 <img src="{{ asset('/images/backarrow.png') }}" alt="back-button">
             </a>
             <h1 class="centered-text">Aanvullende informatie</h1>

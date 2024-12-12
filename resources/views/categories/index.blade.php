@@ -1,4 +1,9 @@
 <x-layout>
+    <style>
+        .back-button img{
+            left: -3.8rem;
+        }
+    </style>
     <div class="cat-container">
         <div id="stap2" class="header-container">
             <a href="{{ route('index') }}" class="back-button">

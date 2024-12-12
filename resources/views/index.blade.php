@@ -4,7 +4,7 @@
     <section id="lp-maincontent">
         <h2 class="homepage-h2">Vind de juiste vacature voor jou!</h2>
          <div id="lp-button-div">
-            <a href="{{ route('categories.index') }}" id="lp-button" class = "homepage-button" aria-label="Bekijk vacatures">Begin aan de stappen!</a>
+            <a href="{{ route('categories.index') }}" id="lp-button" class = "homepage-button" aria-label="Bekijk vacatures">Begin met zoeken!</a>
         </div>
         <h1>Werk voor iedereen!</h1>
         <div class="lp-container">

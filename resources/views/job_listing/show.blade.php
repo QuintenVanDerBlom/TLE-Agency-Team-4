@@ -12,7 +12,7 @@
             border-radius: 0.2rem;
         }
         .back-button img {
-            left: -2.2rem;                        /* Helemaal links */
+            left: -3.3rem;                        /* Helemaal links */
         }
     </style>
 

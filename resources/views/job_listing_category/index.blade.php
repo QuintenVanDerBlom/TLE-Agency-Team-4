@@ -1,10 +1,15 @@
 <x-layout>
+    <style>
+    .back-button img{
+    left: -5.2rem;
+    }
+    </style>
     <div class="cat-container">
         <div id="stap2" class="header-container">
             <a href="{{ route('categories.index') }}" class="back-button">
                 <img src="{{ asset('/images/backarrow.png') }}" alt="back-button">
             </a>
-            <h1 class="centered-text">Rollen</h1>
+            <h1 class="centered-text">Functies</h1>
         </div>
         <p>Kies een rol waarvan u vacatures wilt zien</p>
 
