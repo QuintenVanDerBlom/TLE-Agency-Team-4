@@ -97,11 +97,16 @@ class JobListingController extends Controller
         // Valideer de geselecteerde keuzes
         $validated = $request->validate([
             'keuze' => 'array|nullable',
-            'keuze.*' => 'string|in:Visuele beperking,Auditieve beperking,Cognitieve beperking of Leerstoornis,Psychische beperking,Motorische beperking,Spraak of Communicatiestoornis,Verstandelijke beperking,Chronische Ziekte of Pijn,Neurologische Aandoeningen,Sensorische Stoornis,Amputaties of Ledemaatafwijking,Verborgen beperking'
+            'keuze.*' => 'string|in:Visuele beperking,Auditieve beperking,Cognitieve beperking of Leerstoornis,Psychische beperking,Motorische beperking,Spraak of Communicatiestoornis,Verstandelijke beperking,Chronische Ziekte of Pijn,Neurologische Aandoeningen,Sensorische Stoornis,Amputaties of Ledemaatafwijking,Verborgen beperking',
+            'has_drivers_license' => 'nullable|string|in:yes,no'
         ]);
 
         // Verkrijg de geselecteerde beperkingen uit de request
         $selectedKeuzes = $validated['keuze'] ?? [];  // Als er geen keuzes zijn, dan wordt een lege array gebruikt.
+        $hasDriversLicense = $validated['has_drivers_license'] ?? null;
+
+        // Base query
+        $query = JobListing::query();
 
         // Als er geen beperkingen zijn geselecteerd, haal dan alle vacatures op
         if (empty($selectedKeuzes)) {
@@ -112,6 +117,12 @@ class JobListingController extends Controller
                 // Filter de vacatures die voldoen aan de gekozen beperkingen
                 $query->whereIn('name', $selectedKeuzes);
             })->get();
+        }
+
+        if ($hasDriversLicense === 'no') {
+            $query->where('requires_drivers_license', false);
+        } elseif ($hasDriversLicense === 'yes') {
+            $query->where('requires_drivers_license', true);
         }
 
         // Als er geen vacatures zijn, redirect dan naar joblisting.index met een foutmelding

@@ -13,7 +13,6 @@
 
     <hr class="seperation" />
 
-
     <p class="information">
     Heb je een beperking die een werkgever in de gaten moet houden? (Meerdere antwoorden mogelijk)</p>
 
@@ -23,9 +22,19 @@
         </div>
     @endif
 
-    <section class="checkbox-container">
+    <section class="selections-container">
     <form action= "{{route('filter-vacatures')}}" method="POST">
     @csrf
+        <p>Heb je een rijbewijs?</p>
+        <section class="radio-container">
+            <input type="radio" id="license-yes" name="has_drivers_license" value="yes">
+            <label for="license-yes">Ja</label>
+
+            <input type="radio" id="license-no" name="has_drivers_license" value="no">
+            <label for="license-no">Nee</label>
+        </section>
+
+        <hr class="seperation" />
     <section class="checkbox-item">
     <input type="checkbox" id="visuele-beperking" name="keuze[]" value="Visuele beperking">
     <label for="visuele-beperking">Visuele Beperking</label>
