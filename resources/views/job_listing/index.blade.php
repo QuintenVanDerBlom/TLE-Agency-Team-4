@@ -67,7 +67,7 @@
                     <div class="requirement-item">
                         <div class="accordion" id="accordion-requirements">
                             <button class="accordion-button" type="button" onclick="toggleAccordeon('requirement-list')">
-                                <span id="accordion-label-requirements">Aanvullende informatie</span>
+                                <span id="accordion-label-requirements">Toegankelijkheden</span>
                             </button>
                             <div class="subcategory-list" id="requirement-list" style="display: none;">
                                 @foreach($requirements as $requirement)
@@ -119,23 +119,37 @@
             </div>
 
 
-        @forelse($jobListings as $job)
+            @forelse($jobListings as $job)
                 @if(in_array($job->job_listing_category_id, $categoryIds) || empty($categoryIds))
-                    @if(in_array($job->job_listing_requirement_id, $requirementIds) || empty($requirementIds))
+
+                    @php
+                        // Verkrijg de IDs van de vereisten van de job
+                        $jobRequirementIds = $job->requirements->pluck('id')->toArray();
+                    @endphp
+
+                    @if(array_intersect($jobRequirementIds, $requirementIds) || empty($requirementIds))
 
                         <div class="vacancy-card">
                             <div class="vacancy-card-content">
                                 <img src="{{ asset('/images/bedrijf/bedrijf.png') }}" alt="Vacature afbeelding">
                                 <a href="{{ route('joblistings.show', ['id' => $job->id]) }}" class="vacancy-card-link">
-                                    <h2>{{ $job->company->name }}</h2>
+                                    <h2> {{ $job->jobListingCategory->name }} -
+                                         {{ $job->company->name }}
+
+                                    </h2>
                                     <p><strong>Loon:</strong> €{{ number_format($job->salary, 2) }},- p.m.</p>
                                     <p><strong>Uren:</strong> {{ $job->hours }}</p>
-                                    <p><strong>Locatie:</strong> {{ $job->company->location }}</p>
+                                    <p><strong>Locatie:</strong> {{ $job->company->place }}</p>
+                                    <p><strong>Toegankelijkheden:</strong>
+                                        @foreach($job->requirements as $requirement)
+                                            {{ $requirement->name }}@if(!$loop->last), @endif
+                                        @endforeach
+                                    </p>
                                 </a>
                             </div>
                             <div class="apply-btn-link">
                                 <a href="{{ route('joblistings.show', ['id' => $job->id]) }}">
-                                    <button class="apply-btn">Inschrijven</button>
+                                    <button class="apply-btn">Meer informatie</button>
                                 </a>
                             </div>
                         </div>

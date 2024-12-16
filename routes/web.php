@@ -13,7 +13,7 @@ Route::get('/',[JobListingController::class,'homepage'])->name('index');
 
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
