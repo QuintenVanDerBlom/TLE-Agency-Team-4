@@ -145,6 +145,7 @@
                                             {{ $requirement->name }}@if(!$loop->last), @endif
                                         @endforeach
                                     </p>
+                                    <p><strong>Plek op wachtlijst:</strong> {{ $job->wachtlijst }}</p>
                                 </a>
                             </div>
                             <div class="apply-btn-link">
@@ -277,6 +278,9 @@
                 document.getElementById('filter-form').submit();
             });
         });
+    });
+    window.addEventListener('beforeunload', () => {
+        localStorage.clear();
     });
 
 

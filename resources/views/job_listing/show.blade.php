@@ -41,6 +41,7 @@
                             {{ $requirement->name }}@if(!$loop->last), @endif
                            @endforeach
                 </li>
+                <li>Plek op wachtlijst: {{$jobListing->wachtlijst}}</li>
             </div>
 
             <div class="underline-box">

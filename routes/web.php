@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RequirementController;
@@ -9,7 +10,8 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\JobListingCategoryController;
 use App\Http\Controllers\JobListingController;
 
-Route::get('/',[JobListingController::class,'homepage'])->name('index');
+Route::get('/', [IndexController::class, 'index'])->name('index');
+
 
 
 Route::get('/dashboard', function () {
