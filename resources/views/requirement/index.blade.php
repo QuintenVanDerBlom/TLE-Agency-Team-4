@@ -62,6 +62,11 @@
                             </label>
                         </div>
                     @endforeach
+                        <!-- Birthdate input -->
+                        <div class="birthdate-container">
+                            <label for="birthdate">Geboortedatum:</label>
+                            <input type="date" id="birthdate" name="birthdate" required />
+                        </div>
 
                     <!-- Submit button within accordion menu -->
                     <section class="button">
