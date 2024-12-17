@@ -16,6 +16,16 @@
             <h1 class="centered-text">Toegankelijkheden</h1>
         </header>
 
+        <!-- 'Nee, ga verder' knop -->
+        <form action="{{ route('joblistings.index') }}" method="GET" class="next-form">
+            @csrf
+            <!-- Retain the selected category IDs -->
+            @foreach(request('category_ids', []) as $categoryId)
+                <input type="hidden" name="category_ids[]" value="{{ $categoryId }}">
+            @endforeach
+            <button type="submit" class="reset-btn" id="resetBtn">Nee, ga verder</button>
+        </form>
+
         <!-- Radio button selection for driver's license -->
         <section class="selections-container">
             <p class="information">Heb je een rijbewijs?</p>
@@ -66,7 +76,7 @@
                         </div>
                     @endforeach
                         <!-- Birthdate input -->
-                        <div class="birthdate-container">
+                        <div class="checkbox-item">
                             <label for="birthdate">Geboortedatum:</label>
                             <input type="date" id="birthdate" name="birthdate" required />
                         </div>
@@ -75,10 +85,6 @@
                     <section class="button">
                         <button type="submit" class="job-action">Naar Vacatures</button>
                     </section>
-                        <!-- Submit button -->
-                        <section class="button">
-                            <button type="submit" class="job-action">Naar Vacatures</button>
-                        </section>
                 </div>
 
             </section>
