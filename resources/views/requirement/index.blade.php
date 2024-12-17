@@ -41,9 +41,6 @@
             @foreach(request('category_ids', []) as $categoryId)
                 <input type="hidden" name="category_ids[]" value="{{ $categoryId }}">
             @endforeach
-
-
-
             <!-- Checkbox container for requirements -->
             <section class="checkbox-container">
                 <!-- Accordion toggle button -->
@@ -68,12 +65,12 @@
                             </label>
                         </div>
                     @endforeach
+                        <!-- Submit button -->
+                        <section class="button">
+                            <button type="submit" class="job-action">Naar Vacatures</button>
+                        </section>
                 </div>
-            </section>
 
-            <!-- Submit button -->
-            <section class="button">
-                <button type="submit" class="job-action">Naar Vacatures</button>
             </section>
         </form>
     </div>
