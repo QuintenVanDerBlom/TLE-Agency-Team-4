@@ -8,6 +8,7 @@ use App\Models\JobListing;
 use App\Models\JobListingCategory;
 use App\Models\Requirement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class JobListingController extends Controller
 {
@@ -33,7 +34,15 @@ class JobListingController extends Controller
             });
         })
             ->get();
+        foreach ($jobListings as $jobListing) {
+            // Tel hoe vaak de joblisting voorkomt in de pivot tabel user_job_listing
+            $count = DB::table('user_job_listing')
+                ->where('vacature_id', $jobListing->id)
+                ->count();
 
+            // Voeg aan die specifieke job_listing toe hoe vaak die er in staat
+            $jobListing->wachtlijst = $count + 1;
+        }
 
         // Verkrijg de querystring waarde van 'id' (bijv. ?id=1)
 
@@ -43,11 +52,6 @@ class JobListingController extends Controller
         // Geef de vacatures door aan de view
     }
 
-    public function homepage(){
-        $randomJobListings = JobListing::inRandomOrder()->limit(10)->get();
-
-        return view('index', compact('randomJobListings'));
-    }
 
 
     /**
@@ -73,6 +77,14 @@ class JobListingController extends Controller
     {
         // Zoek de JobListing op basis van de id, of geef een 404-fout als deze niet bestaat
         $jobListing = JobListing::findOrFail($id);
+
+        // Tel hoe vaak de joblisting voorkomt in de pivot tabel user_job_listing
+        $count = DB::table('user_job_listing')
+            ->where('vacature_id', $jobListing->id)
+            ->count();
+
+        // Voeg aan die specifieke job_listing toe hoe vaak die er in staat
+        $jobListing->wachtlijst = $count + 1;
 
         // Geef de specifieke job listing door aan de view
         return view('job_listing.show', compact('jobListing'));

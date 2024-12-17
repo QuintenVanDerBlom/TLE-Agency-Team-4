@@ -1,4 +1,4 @@
-  <x-layout>
+<x-layout>
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -11,8 +11,9 @@
             border: 1px solid #ddd; /* Optioneel voor visuele structuur */
             border-radius: 0.2rem;
         }
+
         .back-button img {
-            left: -3.3rem;                        /* Helemaal links */
+            left: -3.3rem; /* Helemaal links */
         }
     </style>
 
@@ -24,35 +25,44 @@
                 </a>
                 <h1 class="centered-text">Bevestiging</h1>
             </div>
-        <h2>{{ $jobListing->company->name }}</h2>
-        <h3>{{ $jobListing->name }}</h3>
+            <h2>{{ $jobListing->company->name }}</h2>
+            <h3>{{ $jobListing->name }}</h3>
 
-        <div class="underline-box">
-            <p>Overzicht</p>
+            <div class="underline-box">
+                <p>Overzicht</p>
                 <li>Gemiddeld {{ $jobListing->hours }} uur per week</li>
-                <li>€{{ number_format($jobListing->salary / ($jobListing->hours * 7), 2) }} gemiddeld per uur (afhankelijk van leeftijd)</li>
-{{--                <li>Bijzonderheden: {{ $jobListing->details }}</li>--}}
-{{--                <li>Taken: {{ $jobListing->tasks }}</li>--}}
-        </div>
+                <li>€{{ number_format($jobListing->salary / ($jobListing->hours * 7), 2) }} gemiddeld per uur
+                    (afhankelijk van leeftijd)
+                </li>
+                {{--                <li>Bijzonderheden: {{ $jobListing->details }}</li>--}}
+                {{--                <li>Taken: {{ $jobListing->tasks }}</li>--}}
+                <li>Toegankelijkheden:
+                        @foreach($jobListing->requirements as $requirement)
+                            {{ $requirement->name }}@if(!$loop->last), @endif
+                           @endforeach
+                </li>
+                <li>Plek op wachtlijst: {{$jobListing->wachtlijst}}</li>
+            </div>
 
-        <div class="underline-box">
-            <p>Locatie</p>
-            <div id="map"></div>
-        </div>
-        <div class="underline-box">
-            <h3>Wat gaat er nu gebeuren</h3>
-            <li>
-                Door op de knop te drukken, kom je op de wachtlijst te staan.</li>
+            <div class="underline-box">
+                <p>Locatie</p>
+                <div id="map"></div>
+            </div>
+            <div class="underline-box">
+                <h3>Wat gaat er nu gebeuren</h3>
+                <li>
+                    Door op de knop te drukken, kom je op de wachtlijst te staan.
+                </li>
                 <li>Je ontvangt een bevestigingsmail van je inschrijving.</li>
                 <li>Je inschrijving wordt zichtbaar onder "Jouw inschrijvingen".</li>
                 <li>Hier kun je ook je plaats op de wachtlijst zien</li>
-               <li> Bij acceptatie ontvang je een e-mail om de baan officieel te accepteren.</li>
-        </div>
+                <li> Bij acceptatie ontvang je een e-mail om de baan officieel te accepteren.</li>
+            </div>
         </div>
         <form action="{{ route('jobapplication.store', ['job_id' => $jobListing->id]) }}" method="POST">
             @csrf
             <input type="hidden" name="job_id" value="{{ $jobListing->id }}">
-            <button type="submit">Schrijf je in voor de vacature</button>
+            <button type="submit">Schrijf je in voor de vacature!</button>
         </form>
 
     </section>

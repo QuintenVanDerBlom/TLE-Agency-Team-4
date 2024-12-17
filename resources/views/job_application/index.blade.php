@@ -87,20 +87,32 @@
             @forelse($jobListings as $job)
                 <div class="vacancy-card">
                     <button class="toggle-card">
-                        {{ $job->company->name }} - Wachtlijstplek: {{ $job->queue_position }}
+                        {{ $job->company->name }} {{ $job->name }} - Wachtlijstplek:
+                        @foreach($job->users as $index => $user)
+                            @if($user->id == Auth::id())
+                                {{ $index + 1 }} <!-- Positie op de wachtlijst -->
+                            @endif
+                        @endforeach
                         <span class="arrow">▼</span>
                     </button>
                     <div class="vacancy-details">
-                        <p><strong>Baan:</strong> {{ $job->position }}</p>
-                        <p><strong>Locatie:</strong> {{ $job->company->location }}</p>
+                        <p><strong>Baan:</strong> {{ $job->name }}</p>
+                        <p><strong>Locatie:</strong> {{ $job->company->place }}</p>
                         <p><strong>Salaris:</strong> €{{ number_format($job->salary, 2) }},- p.m.</p>
-                        <p><strong>Plek op de wachtlijst:</strong> {{ $job->queue_position }}</p>
+                        <p><strong>Plek op de wachtlijst:</strong>
+                            @foreach($job->users as $index => $user)
+                                @if($user->id == Auth::id())
+                                    {{ $index + 1 }} <!-- Positie op de wachtlijst -->
+                                @endif
+                            @endforeach
+                        </p>
                         <form action="{{ route('jobapplication.destroy', $job->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="remove-btn">Verwijder</button>
                         </form>
                     </div>
+
                 </div>
             @empty
                 <p>Je hebt nog geen inschrijvingen</p>
