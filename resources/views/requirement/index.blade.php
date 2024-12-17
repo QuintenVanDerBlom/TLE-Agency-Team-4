@@ -38,6 +38,12 @@
             </section>
         </section>
 
+        <section class="selections-container">
+            <p class="information">Heeft u een strafblad?</p>
+            <input type="radio" id="has_criminal_record_yes" name="has_criminal_record" value="record-yes"> Ja
+            <input type="radio" id="has_criminal_record_no" name="has_criminal_record" value="record-no"> Nee
+        </section>
+
         <!-- Informational text -->
         <p class="information">
             Heeft u bepaalde toegankelijkheden waar de werkgever rekening mee moet houden?

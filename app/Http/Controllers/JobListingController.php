@@ -99,12 +99,14 @@ class JobListingController extends Controller
             'birthdate' => 'required|date|before:' . now()->subYears(16)->toDateString(),
             'keuze' => 'array|nullable',
             'keuze.*' => 'string|in:Visuele beperking,Auditieve beperking,Cognitieve beperking of Leerstoornis,Psychische beperking,Motorische beperking,Spraak of Communicatiestoornis,Verstandelijke beperking,Chronische Ziekte of Pijn,Neurologische Aandoeningen,Sensorische Stoornis,Amputaties of Ledemaatafwijking,Verborgen beperking',
-            'has_drivers_license' => 'nullable|string|in:licence-yes,license-no'
+            'has_drivers_license' => 'nullable|string|in:licence-yes,license-no',
+            'has_criminal_record' => 'nullable|string|in:record-yes,record-no',
         ]);
 
         // Verkrijg de geselecteerde beperkingen uit de request
         $selectedKeuzes = $validated['keuze'] ?? [];  // Als er geen keuzes zijn, dan wordt een lege array gebruikt.
         $hasDriversLicense = $validated['has_drivers_license'] ?? null;
+        $hasCriminalRecord = $validated['has_criminal_record'] ?? null;
 
         // Base query
         $query = JobListing::query();
@@ -124,6 +126,12 @@ class JobListingController extends Controller
             $query->where('requires_drivers_license', false);
         } elseif ($hasDriversLicense === 'yes') {
             $query->where('requires_drivers_license', true);
+        }
+
+        if ($hasCriminalRecord === 'yes') {
+            $query->where('requires_criminal_record_check', true);
+        } elseif ($hasCriminalRecord === 'no') {
+            $query->where('requires_criminal_record_check', false);
         }
 
         // Als er geen vacatures zijn, redirect dan naar joblisting.index met een foutmelding
