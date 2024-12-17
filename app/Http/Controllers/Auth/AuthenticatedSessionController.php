@@ -28,7 +28,30 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        // Haal de huidige gebruiker op
+        $user = Auth::user();
+
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('error', 'Je moet ingelogd zijn om je in te schrijven.');
+        }
+
+//        // Haal de huidige gebruiker op
+//        $user = Auth::user();
+
+        $id = $request->input('job_id');
+        // Controleer of de gebruiker al is ingeschreven voor de vacature
+        if ($user->jobListings()->where('vacature_id', $id)->exists()) {
+            // Als de gebruiker al is ingeschreven, stuur een foutmelding
+            return redirect()->route('jobapplication.index')->with('success', 'Je bent al ingeschreven voor de vacature!');
+        }
+
+        // Voeg de joblisting toe aan de user via de pivot tabel
+        $user->jobListings()->attach($id);
+
+        // Na inloggen, redirect terug naar de pagina die de gebruiker oorspronkelijk wilde bezoeken
+        return redirect()->intended(route('jobapplication.store', ['job_id' => $request->input('job_id')]))
+            ->with('success', 'Je bent succesvol ingelogd!');
+
     }
 
     /**

@@ -59,10 +59,16 @@
                 <li> Bij acceptatie ontvang je een e-mail om de baan officieel te accepteren.</li>
             </div>
         </div>
-        <form action="{{ route('jobapplication.store', ['job_id' => $jobListing->id]) }}" method="POST">
+
+        <form action="{{ route('jobapplication.index', ['job_id' => $jobListing->id]) }}" method="POST">
             @csrf
             <input type="hidden" name="job_id" value="{{ $jobListing->id }}">
-            <button type="submit">Schrijf je in voor de vacature!</button>
+
+            @auth
+                <button type="submit">Schrijf je in voor de vacature!</button>
+            @else
+                <a href="{{ route('login') }}" class="btn btn-primary">Log in om je in te schrijven</a>
+            @endauth
         </form>
 
     </section>

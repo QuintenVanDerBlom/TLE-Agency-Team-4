@@ -1,9 +1,30 @@
+
+
+<style>
+    .alert-danger {
+        background-color: #f8d7da;
+        color: #721c24;
+        padding: 10px;
+        border-radius: 5px;
+    }
+</style>
+
+
 <x-layout>
+
+    @if(session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+
 <div class="cat-container">
     <h1>Login</h1>
-    <!-- Session Status -->
+
     <x-auth-session-status class="mb-4" :status="session('status')" />
+
     <form class="login-form" method="POST" action="{{ route('login') }}">
+
         @csrf
         <!-- Email Address -->
         <div class="form-group">

@@ -48,6 +48,6 @@ class User extends Authenticatable
     }
     public function jobListings(): BelongsToMany
     {
-        return $this->belongsToMany(JobListing::class, 'user_job_listing', 'user_id', 'vacature_id')->withTimestamps();
+        return $this->belongsToMany(JobListing::class, 'user_job_listing', 'user_id', 'vacature_id', 'job_listing_id')->withTimestamps();
     }
 }
