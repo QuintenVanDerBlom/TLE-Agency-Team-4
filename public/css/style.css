@@ -35,6 +35,7 @@ html, body {
     align-items: center; /* Align vertically */
     height: 10vh; /* Full viewport height to center in the page */
     padding: 2rem 6rem 1.5rem 5rem; /* [top] [right] [bottom] [left];*/
+    margin-bottom: 5vh;
 }
 
 .checkbox-container {
@@ -197,11 +198,14 @@ font-size: 2rem;
 #profile-picture {
     width: 15vw;
     height: auto;
+    border-radius: 50%;
 }
 
 #banner-image {
     width: 100vw;
     height: 30vh;
+    object-fit: cover;
+    background-color: grey;
 }
 
 #main-footer {
@@ -246,13 +250,16 @@ font-size: 2rem;
 
     #profile-picture {
         width: 3vw;          /* Width will be 3% of the viewport width */
-        height: auto;        /* Height will adjust automatically to maintain aspect ratio */
+        height: auto;
+        border-radius: 50%; /* Height will adjust automatically to maintain aspect ratio */
     }
 
     #banner-image {
         width: 100%;         /* Full width of its parent container */
-        height: auto;        /* Height will adjust proportionally based on width */
+        height: 60vh;        /* Height will adjust proportionally based on width */
         max-height: 60vh;    /* Ensures the height does not exceed 60% of the viewport height */
+        object-fit: cover;
+        object-position: 0px -100px;
     }
 
     #main-footer {
@@ -733,13 +740,55 @@ font-size: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 1px solid #dcdcdc;
-    border-radius: 10px;
-    padding: 15px;
-    margin: 10px;
-    background-color: #fafafa;
-    box-shadow: 2.8px 5.6px 5.6px hsl(0deg 0% 0% / 0.35);
-    width: 90vw; /* Zorg dat alle categorieën dezelfde breedte hebben */
+    border: 1px solid #e6e6e6; /* Lighter border */
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px;
+    background: linear-gradient(135deg, #ffffff, #f9f9f9); /* Subtle gradient */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Cleaner shadow */
+    width: 70vw; /* Slightly narrower */
+    max-width: 400px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.vacancy-card:hover {
+    transform: translateY(-5px); /* Lift on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Deeper shadow */
+}
+
+.vacancy-card h3 {
+    margin: 0 0 10px; /* Space below headings */
+    color: #333333; /* Darker text for readability */
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.vacancy-card p {
+    color: #666666; /* Slightly faded for paragraphs */
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.vacancy-card a {
+    align-self: flex-start; /* Align link to the left */
+    color: #007BFF; /* Accent color */
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.vacancy-card a:hover {
+    color: #0056b3; /* Darker blue on hover */
+    text-decoration: underline;
+}
+
+/* Responsive styling for smaller screens */
+@media (min-width: 768px) {
+    .vacancy-card {
+        width: 95vw;
+        padding: 15px;
+        max-width: 60vw;
+    }
 }
 
 .vacancy-card-content {
@@ -818,7 +867,7 @@ font-size: 2rem;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 0.5rem;
-    width: 90vw;
+    width: 70vw;
 }
 .filters {
     max-width: 60vw;
@@ -916,6 +965,8 @@ form {
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: 40vw;
+    height: 5.1vh;
 }
 
 .reset-btn:hover {
@@ -1392,6 +1443,9 @@ button[type="submit"]:hover {
     display: flex; /* Maak ruimte voor het icoon */
     align-items: center;
     justify-content: center;
+    width: 5vw;
+    height: 5vh;
+    margin: 0;
 }
 
 /* Specifieke styling voor de zoekbalk container */
@@ -1434,22 +1488,49 @@ button[type="submit"]:hover {
     gap: 0.5rem;
     margin-top: 1rem;
 }
-/* Algemeen voor de accordeonknoppen */
 .accordion-button {
-    background-color: #f1f1f1;
-    border: 1px solid #ccc;
-    padding: 10px;
+    background-color: #f9f9f9; /* Slightly lighter background */
+    border: none; /* Remove border for a cleaner look */
+    border-radius: 8px; /* Rounded corners */
+    padding: 12px 15px; /* Better spacing */
     text-align: left;
     width: 100%;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s ease;
+    color: #333; /* Darker text for better readability */
+    font-weight: 600; /* Make the text stand out */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Align arrow and text */
+    transition: all 0.3s ease; /* Smooth transition for hover and focus */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-/* Verander de achtergrondkleur van de knop bij hover */
-.accordion-button:hover {
-    background-color: #ddd;
+.accordion-button:hover, .accordion-button:focus {
+    background-color: #f1dbe6; /* Light blue on hover/focus */
+    color: black; /* Blue text on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
+    outline: none; /* Remove default focus outline */
 }
+
+.accordion-button::after {
+    content: "▼"; /* Add a dropdown arrow */
+    font-size: 14px;
+    color: inherit; /* Arrow color matches text */
+    transition: transform 0.3s ease; /* Rotate arrow smoothly */
+}
+
+.accordion-button[aria-expanded="true"]::after {
+    transform: rotate(180deg); /* Rotate arrow when expanded */
+}
+
+.accordion-button:disabled {
+    background-color: #f1f1f1; /* Dim button when disabled */
+    color: #aaa; /* Gray text */
+    cursor: not-allowed; /* Indicate it's not clickable */
+    box-shadow: none; /* Remove shadow */
+}
+
 
 /* Subcategorieën en requirements verborgen bij default */
 .subcategory-list {
@@ -1495,7 +1576,7 @@ button[type="submit"]:hover {
 /* Profile Card */
 .profile-card {
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 25px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 2rem;
 }

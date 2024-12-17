@@ -65,7 +65,7 @@
 
                     <!-- Submit button within accordion menu -->
                     <section class="button">
-                        <button type="submit" class="job-action">Vacatures bekijken</button>
+                        <button type="submit" class="job-action">Naar Vacatures</button>
                     </section>
                 </div>
             </form>
