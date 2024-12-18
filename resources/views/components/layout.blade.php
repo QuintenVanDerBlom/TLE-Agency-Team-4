@@ -23,11 +23,12 @@
     </div>
 
 </header>
+<main>
 {{ $slot }}
 
 
 
-</body>
+</main>
 <footer id="main-footer">
     <div>
         <a href="{{ route('contact') }}">Contact</a>
