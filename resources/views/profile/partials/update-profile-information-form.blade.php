@@ -81,7 +81,56 @@
             @endif
         </div>
 
-        @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
+        <!-- Criminal Record -->
+        <div class="form-group">
+            <label for="has_criminal_record" class="form-label">{{ __('Heb je een strafblad?') }}</label>
+            <div>
+                <input
+                    id="criminal-record-yes"
+                    type="radio"
+                    name="has_criminal_record"
+                    value="1"
+                    {{ $user->has_criminal_record === true ? 'checked' : '' }}
+                />
+                <label for="criminal-record-yes">Ja</label>
+
+                <input
+                    id="criminal-record-no"
+                    type="radio"
+                    name="has_criminal_record"
+                    value="0"
+                    {{ $user->has_criminal_record === false ? 'checked' : '' }}
+                />
+                <label for="criminal-record-no">Nee</label>
+            </div>
+        </div>
+
+        <!-- Driver's License -->
+        <div class="form-group">
+            <label for="has_drivers_license" class="form-label">{{ __('Heb je een rijbewijs?') }}</label>
+            <div>
+                <input
+                    id="drivers-license-yes"
+                    type="radio"
+                    name="has_drivers_license"
+                    value="1"
+                    {{ $user->has_drivers_license === true ? 'checked' : '' }}
+                />
+                <label for="drivers-license-yes">Ja</label>
+
+                <input
+                    id="drivers-license-no"
+                    type="radio"
+                    name="has_drivers_license"
+                    value="0"
+                    {{ $user->has_drivers_license === false ? 'checked' : '' }}
+                />
+                <label for="drivers-license-no">Nee</label>
+            </div>
+        </div>
+
+
+    @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
             <div class="email-verification">
                 <p class="verification-message">
                     {{ __('Je e-mailadres is niet geverifieerd.') }}

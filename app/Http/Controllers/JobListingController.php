@@ -8,6 +8,7 @@ use App\Models\JobListing;
 use App\Models\JobListingCategory;
 use App\Models\Requirement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class JobListingController extends Controller
@@ -17,23 +18,46 @@ class JobListingController extends Controller
      */
     public function index(Request $request)
     {
+        //input velden vangen
         $categoryIds = $request->input('category_ids', []);
         $requirementIds = $request->input('requirement_ids', []);
+        $search = $request->input('search');
 
+        $hasDriversLicense = Auth::check() ? $request->input('has_drivers_license') : null;
+        $hasCriminalRecord = Auth::check() ? $request->input('has_criminal_record') : null;
+
+
+        //Gerelateerde data opladen voor filters
 //        $jobListings = JobListing::all();
         $jobListingCategories = JobListingCategory::all();
         $categories = Category::all();
         $requirements = Requirement::all();
 
+        //Query voor filters
+        $jobListings = JobListing::with('company')
+            ->when($search, function ($query) use ($search) {
+                $query->whereHas('company', function ($query) use ($search) {
+                    $query->where('name', 'like', '%' . $search . '%');
+                });
+            })
 
-        $search = $request->input('search');
-        $jobListings = JobListing::with('company') // Laadt de gekoppelde company data
-        ->when($search, function ($query) use ($search) {
-            $query->whereHas('company', function ($query) use ($search) {
-                $query->where('name', 'like', '%' . $search . '%');
-            });
-        })
+            ->when(Auth::check() && $hasDriversLicense, function ($query) use ($hasDriversLicense) {
+                if ($hasDriversLicense === 'yes') {
+                    $query->where('requires_drivers_license', true);
+                } elseif ($hasDriversLicense === 'no') {
+                    $query->where('requires_drivers_license', false);
+                }
+            })
+            ->when(Auth::check() && $hasCriminalRecord, function ($query) use ($hasCriminalRecord) {
+                if ($hasCriminalRecord === 'yes') {
+                    $query->where('allows_criminal_record', true);
+                } elseif ($hasCriminalRecord === 'no') {
+                    $query->where('allows_criminal_record', false);
+                }
+            })
             ->get();
+
+        //wachtlijst logica
         foreach ($jobListings as $jobListing) {
             // Tel hoe vaak de joblisting voorkomt in de pivot tabel user_job_listing
             $count = DB::table('user_job_listing')
@@ -116,38 +140,38 @@ class JobListingController extends Controller
     }
 
     // JobListingController.php
-    public function filter(Request $request)
-    {
-
-        // Valideer de geselecteerde keuzes
-        $validated = $request->validate([
-            'keuze' => 'array|nullable',
-            'keuze.*' => 'string|in:Visuele beperking,Auditieve beperking,Cognitieve beperking of Leerstoornis,Psychische beperking,Motorische beperking,Spraak of Communicatiestoornis,Verstandelijke beperking,Chronische Ziekte of Pijn,Neurologische Aandoeningen,Sensorische Stoornis,Amputaties of Ledemaatafwijking,Verborgen beperking'
-        ]);
-
-        // Verkrijg de geselecteerde beperkingen uit de request
-        $selectedKeuzes = $validated['keuze'] ?? [];  // Als er geen keuzes zijn, dan wordt een lege array gebruikt.
-
-        // Als er geen beperkingen zijn geselecteerd, haal dan alle vacatures op
-        if (empty($selectedKeuzes)) {
-            $jobListings = JobListing::all();  // Als geen beperking is gekozen, haal alle vacatures op
-        } else {
-            // Zoek vacatures die voldoen aan de geselecteerde beperkingen
-            $jobListings = JobListing::whereHas('requirements', function ($query) use ($selectedKeuzes) {
-                // Filter de vacatures die voldoen aan de gekozen beperkingen
-                $query->whereIn('name', $selectedKeuzes);
-            })->get();
-        }
-
-        // Als er geen vacatures zijn, redirect dan naar joblisting.index met een foutmelding
-        if ($jobListings->isEmpty()) {
-            return redirect()->route('joblistings.index')
-                ->with('error', 'Geen vacatures gevonden die voldoen aan de geselecteerde criteria.');
-        }
-
-        // Geef de gefilterde vacatures door aan de Blade
-        return view('filter-vacatures', compact('jobListings'));
-    }
+//    public function filter(Request $request)
+//    {
+//
+//        // Valideer de geselecteerde keuzes
+//        $validated = $request->validate([
+//            'keuze' => 'array|nullable',
+//            'keuze.*' => 'string|in:Visuele beperking,Auditieve beperking,Cognitieve beperking of Leerstoornis,Psychische beperking,Motorische beperking,Spraak of Communicatiestoornis,Verstandelijke beperking,Chronische Ziekte of Pijn,Neurologische Aandoeningen,Sensorische Stoornis,Amputaties of Ledemaatafwijking,Verborgen beperking'
+//        ]);
+//
+//        // Verkrijg de geselecteerde beperkingen uit de request
+//        $selectedKeuzes = $validated['keuze'] ?? [];  // Als er geen keuzes zijn, dan wordt een lege array gebruikt.
+//
+//        // Als er geen beperkingen zijn geselecteerd, haal dan alle vacatures op
+//        if (empty($selectedKeuzes)) {
+//            $jobListings = JobListing::all();  // Als geen beperking is gekozen, haal alle vacatures op
+//        } else {
+//            // Zoek vacatures die voldoen aan de geselecteerde beperkingen
+//            $jobListings = JobListing::whereHas('requirements', function ($query) use ($selectedKeuzes) {
+//                // Filter de vacatures die voldoen aan de gekozen beperkingen
+//                $query->whereIn('name', $selectedKeuzes);
+//            })->get();
+//        }
+//
+//        // Als er geen vacatures zijn, redirect dan naar joblisting.index met een foutmelding
+//        if ($jobListings->isEmpty()) {
+//            return redirect()->route('joblistings.index')
+//                ->with('error', 'Geen vacatures gevonden die voldoen aan de geselecteerde criteria.');
+//        }
+//
+//        // Geef de gefilterde vacatures door aan de Blade
+//        return view('filter-vacatures', compact('jobListings'));
+//    }
 
 
 }

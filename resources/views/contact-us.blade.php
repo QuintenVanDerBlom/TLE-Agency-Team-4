@@ -23,7 +23,7 @@
 
                     <div class="contact-item">
                         <h3 class="contact-item-title">Adres</h3>
-                        <p class="contact-item-description">Klokstraat 1234</p>
+                        <p class="contact-item-description">Klokgebouw 188, 7e etage</p>
                     </div>
                 </div>
             </div>
