@@ -14,14 +14,29 @@ class JobApplicationController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
+        $authUser = Auth::user();
 
         // Haal alle joblistings op waarvoor de gebruiker is ingeschreven
-        $jobListings = $user->jobListings; // Dit maakt gebruik van de BelongsToMany relatie
+        $jobListings = $authUser->jobListings; // Dit maakt gebruik van de BelongsToMany relatie
+
+        foreach ($jobListings as $jobListing) {
+            // Haal de gebruikers van deze job listing en sorteer op created_at van de pivot
+            $users = $jobListing->users()->orderBy('user_job_listing.created_at')->get();
+
+            // Stel de wachtlijstpositie in voor elke gebruiker op basis van de inschrijvingstijd
+            foreach ($users as $index => $user) {
+                // Sla de volgorde op in een dynamisch veld voor de joblisting
+                $user->queue_position = $index + 1;
+            }
+
+            // Voeg de gesorteerde gebruikers en hun wachtlijstpositie toe aan de jobListing objecten
+            $jobListing->users = $users;
+        }
 
         // Retourneer de joblistings naar de view
         return view('job_application.index', compact('jobListings'));
     }
+
 
     /**
      * Show the form for creating a new resource.

@@ -13,7 +13,7 @@ class JobListing extends Model
 
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany(User::class, 'user_job_listing', 'vacature_id', 'user_id');
+        return $this->belongsToMany(User::class, 'user_job_listing', 'vacature_id', 'user_id')->withTimestamps();
     }
 
     public function requirements(): BelongsToMany
@@ -28,5 +28,9 @@ class JobListing extends Model
     public function company(): BelongsTo
     {
         return $this->belongsTo(Company::class);
+    }
+    public function jobListingCategory(): BelongsTo
+    {
+        return $this->belongsTo(JobListingCategory::class, 'job_listing_category_id');
     }
 }
