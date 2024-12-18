@@ -41,12 +41,11 @@
                     </div>
                     <div class="apply-btn-link">
                         <a href="{{ route('joblistings.show', ['id' => $job->id]) }}">
-                            <button class="apply-btn">Inschrijven</button>
+                            <button class="apply-btn">Meer informatie</button>
                         </a>
                     </div>
                 </div>
             @endforeach
-        <h3>Klik op de knop voor alle vacatures.</h3>
     </section>
     <div id="lp-button-div">
         <a href="{{ route('joblistings.index') }}" id="lp-button" aria-label="Bekijk alle vacatures">Bekijk alle vacatures</a>

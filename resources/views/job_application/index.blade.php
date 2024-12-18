@@ -9,7 +9,7 @@
             .vacancy-card {
                 border: 0.1rem solid #dcdcdc;
                 border-radius: 1rem;
-                margin-bottom: 2vh;
+                margin: 2vh 0;
                 overflow: hidden;
                 background-color: #fff;
                 box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
@@ -66,6 +66,7 @@
             }
             button[type="submit"] {
                 background-color: red;
+                margin-bottom:0;
 
             }
 

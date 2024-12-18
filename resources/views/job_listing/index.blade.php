@@ -15,7 +15,7 @@
         <form action="{{ route('joblistings.index') }}" method="GET" class="search-form">
             <label for="search" class="text-gray-800 font-semibold"></label>
             <div class="search-container">
-                <input type="text" id="search" name="search" placeholder="Search">
+                <input type="text" id="search" name="search" placeholder="Zoek voor bedrijven">
                 <button type="submit" class="search-submit">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2">
