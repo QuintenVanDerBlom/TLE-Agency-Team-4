@@ -30,6 +30,7 @@
             @endforeach
             <button type="submit" class="reset-btn" id="resetBtn">Nee, ga verder</button>
         </form>
+{{--        --}}
 
         <!-- Checkbox container for requirements -->
         <section class="checkbox-container">
