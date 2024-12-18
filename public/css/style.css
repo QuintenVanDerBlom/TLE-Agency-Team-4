@@ -4,6 +4,9 @@
 html, body {
     font-family: "Kantumruy Pro", sans-serif;
 }
+main{
+    min-height: 80vh;
+}
 
 .seperation {
     border: none; /* Remove the default border */
@@ -746,7 +749,7 @@ font-size: 2rem;
     margin: 20px;
     background: linear-gradient(135deg, #ffffff, #f9f9f9); /* Subtle gradient */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Cleaner shadow */
-    width: 70vw; /* Slightly narrower */
+    width: 90vw; /* Slightly narrower */
     max-width: 400px;
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
 }
